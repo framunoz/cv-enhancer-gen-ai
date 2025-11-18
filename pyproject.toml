@@ -1,0 +1,50 @@
+[project]
+name = "cv-enhancer-gen-ai"
+version = "0.1.0"
+description = "CV Enhancer using Generative AI"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+show-fixes = true
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",     # flake8
+    "W",     # pycodestyle warnings
+    "E",     # pycodestyle errors
+    "I",     # isort
+    "N",     # pep8-naming (naming conventions)
+    "UP",    # pyupgrade (modernize syntax)
+    "S",   # bandit (security issues)
+    "B",     # flake8-bugbear (bug-prone patterns)
+    "A",     # flake8-builtins (avoid shadowing builtins)
+    "C4",    # flake8-comprehensions (better comprehensions)
+    "T20",   # flake8-print (avoid print statements)
+    "SIM",   # flake8-simplify (simplify code)
+    "ARG",   # flake8-unused-arguments
+    "PTH",   # flake8-use-pathlib (prefer pathlib over os.path)
+    "ERA",   # eradicate (remove commented-out code)
+    "PL",    # pylint
+    "T201",  # too many arguments
+    "RUF",   # ruff-specific rules
+]
+ignore = [
+    # "E501",  # line too long
+    # "F821",  # undefined name
+]
+
+[tool.black]
+line-length = 88
+preview = true
+unstable = true
+
+[tool.pyrefly]
+project-includes = [
+    "**/*.py*",
+    "**/*.ipynb",
+]

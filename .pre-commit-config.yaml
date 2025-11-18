@@ -1,0 +1,28 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: end-of-file-fixer
+      - id: check-ast
+      - id: check-yaml
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.21.0
+    hooks:
+      - id: pyupgrade
+        args: [--py313-plus]
+
+  - repo: https://github.com/psf/black
+    rev: 25.9.0
+    hooks:
+      - id: black-jupyter
+        args: [--preview, --unstable] # Enable future features
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.8.3"
+    hooks:
+      - id: ruff
