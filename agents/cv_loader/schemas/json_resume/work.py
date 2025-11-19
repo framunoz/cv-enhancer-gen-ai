@@ -14,7 +14,6 @@ Schema for this part of the json resume:
     ]
   }],
 ```
-
 """
 
 import datetime as dt

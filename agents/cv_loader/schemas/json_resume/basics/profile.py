@@ -1,3 +1,16 @@
+"""
+Schema for this part of the json resume:
+
+```
+    "profiles": [{
+      "network": "Twitter",
+      "username": "john",
+      "url": "https://twitter.com/john"
+    }]
+```
+
+"""
+
 from pydantic import BaseModel, Field, HttpUrl
 
 

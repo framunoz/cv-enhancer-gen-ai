@@ -1,3 +1,18 @@
+"""
+Schema for this part of the json resume:
+
+```
+    "location": {
+      "address": "2712 Broadway St",
+      "postalCode": "CA 94115",
+      "city": "San Francisco",
+      "countryCode": "US",
+      "region": "California"
+    },
+```
+
+"""
+
 from pydantic import BaseModel, Field
 
 
