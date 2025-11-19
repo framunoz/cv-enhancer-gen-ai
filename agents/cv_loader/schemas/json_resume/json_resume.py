@@ -4,6 +4,7 @@ from .awards import AwardItem
 from .basics.basics import Basics
 from .certificates import CertificateItem
 from .education import EducationItem
+from .languages import LanguageItem
 from .publications import PublicationItem
 from .skills import SkillItem
 from .volunteer import VolunteerItem
@@ -48,6 +49,10 @@ class JsonResume(BaseModel):
     skills: list[SkillItem] = Field(
         default_factory=list,
         description="List of skills",
+    )
+    languages: list[LanguageItem] = Field(
+        default_factory=list,
+        description="List of languages known",
     )
 
 

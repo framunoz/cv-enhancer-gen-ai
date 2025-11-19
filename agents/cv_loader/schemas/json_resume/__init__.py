@@ -3,6 +3,7 @@ from .basics import Basics, Location, Profile
 from .certificates import CertificateItem
 from .education import EducationItem
 from .json_resume import JsonResume
+from .languages import LanguageItem
 from .publications import PublicationItem
 from .skills import SkillItem
 from .volunteer import VolunteerItem
@@ -14,6 +15,7 @@ __all__ = [
     "CertificateItem",
     "EducationItem",
     "JsonResume",
+    "LanguageItem",
     "Location",
     "Profile",
     "PublicationItem",
