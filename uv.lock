@@ -293,12 +293,14 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "google-adk" },
+    { name = "pydantic" },
     { name = "streamlit" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "google-adk", specifier = ">=1.18.0" },
+    { name = "pydantic", specifier = ">=2.12.4" },
     { name = "streamlit", specifier = ">=1.51.0" },
 ]
 
