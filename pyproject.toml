@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "google-adk>=1.18.0",
-    "pydantic>=2.12.4",
+    "pydantic[email]>=2.12.4",
     "streamlit>=1.51.0",
 ]
 
@@ -38,6 +38,7 @@ select = [
     "RUF",   # ruff-specific rules
 ]
 ignore = [
+    "N815",  # class names should use CapWords convention
     # "E501",  # line too long
     # "F821",  # undefined name
 ]
