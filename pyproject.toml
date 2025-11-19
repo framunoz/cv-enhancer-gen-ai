@@ -53,3 +53,8 @@ project-includes = [
     "**/*.py*",
     "**/*.ipynb",
 ]
+
+[dependency-groups]
+dev = [
+    "rich>=14.2.0",
+]
