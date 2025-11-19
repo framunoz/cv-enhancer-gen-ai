@@ -6,6 +6,7 @@ from .certificates import CertificateItem
 from .education import EducationItem
 from .interests import InterestItem
 from .languages import LanguageItem
+from .projects import ProjectItem
 from .publications import PublicationItem
 from .references import ReferenceItem
 from .skills import SkillItem
@@ -63,6 +64,10 @@ class JsonResume(BaseModel):
     references: list[ReferenceItem] = Field(
         default_factory=list,
         description="List of references",
+    )
+    projects: list[ProjectItem] = Field(
+        default_factory=list,
+        description="List of projects",
     )
 
 

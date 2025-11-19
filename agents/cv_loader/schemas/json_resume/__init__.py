@@ -5,6 +5,7 @@ from .education import EducationItem
 from .interests import InterestItem
 from .json_resume import JsonResume
 from .languages import LanguageItem
+from .projects import ProjectItem
 from .publications import PublicationItem
 from .references import ReferenceItem
 from .skills import SkillItem
@@ -21,6 +22,7 @@ __all__ = [
     "LanguageItem",
     "Location",
     "Profile",
+    "ProjectItem",
     "PublicationItem",
     "ReferenceItem",
     "SkillItem",
