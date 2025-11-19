@@ -12,7 +12,7 @@ cv_enhancer_agent = SequentialAgent(
     sub_agents=[
         job_offer_summarizer_agent,
         writer_agent,
-    ]
+    ],
 )
 
 # Expose the agent for external use

@@ -27,7 +27,7 @@ flowchart TD
         exit_loop@{ shape: das, label: "exit_loop tool" } --> RefinementAgent
         RefinementAgent ~~~ exit_loop
     end
-    
+
     RefinementAgent -- draft_cv --> enhanced_cv@{ shape: doc }
     enhanced_cv --> Stop@{ shape: dbl-circ }
 ```
