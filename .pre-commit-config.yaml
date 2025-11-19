@@ -11,18 +11,18 @@ repos:
       - id: check-added-large-files
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.21.0
+    rev: v3.21.2
     hooks:
       - id: pyupgrade
         args: [--py313-plus]
 
   - repo: https://github.com/psf/black
-    rev: 25.9.0
+    rev: 25.11.0
     hooks:
       - id: black-jupyter
         args: [--preview, --unstable] # Enable future features
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.8.3"
+    rev: "v0.14.5"
     hooks:
       - id: ruff
