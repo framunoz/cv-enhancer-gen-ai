@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 
 from .basics.basics import Basics
+from .education import EducationItem
 from .volunteer import VolunteerItem
 from .work import WorkItem
 
@@ -23,6 +24,10 @@ class JsonResume(BaseModel):
     volunteer: list[VolunteerItem] = Field(
         default_factory=list,
         description="List of volunteer experiences",
+    )
+    education: list[EducationItem] = Field(
+        default_factory=list,
+        description="List of educational qualifications",
     )
 
 
