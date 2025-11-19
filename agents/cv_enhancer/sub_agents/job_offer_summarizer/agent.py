@@ -1,11 +1,27 @@
+import json
+
 from google.adk.agents import Agent
 from google.adk.models.google_llm import Gemini
 from google.genai import types
 
-from .prompt import PROMPT
-from .schemas import JobOfferSummarized
+from .schemas import __SCHEMA_EXAMPLE, JobOfferSummarized
 
 MODEL = "gemini-2.5-flash"
+
+PROMPT = f"""
+You are a Job Offer Summarizer. Your only task is to read the provided job offer
+and extract the key information such as the description, requirements, stack
+and provide a concise summary. Do not add any additional information
+(such as benefits, the title, the company) or opinions.
+
+The output must be only the summarized job offer without any additional
+commentary.
+
+Here is an example of the output format:
+---
+{json.dumps(__SCHEMA_EXAMPLE, indent=2)}
+---
+"""
 
 retry_config = types.HttpRetryOptions(
     attempts=5,  # Maximum retry attempts
