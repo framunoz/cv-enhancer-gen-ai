@@ -2,29 +2,37 @@
 
 ```mermaid
 flowchart TD
-    A[User Uploads CV] --> JsonCV[(Json Resume CV)]
-    JsonCV --> Tools@{ shape: das, label: "Tools:\n- Tool 1\n- Tool 2" }
+    Start@{ shape: circle }
+
+    Start --> user_input@{ shape: doc, label: "User Input:\n- CV - Job Offer" }
+    user_input -- cv | job_offer --> OrchestratorAgent@{ shape: rect }
+    OrchestratorAgent e1@-- cv --> CVLoaderAgent@{ shape: rect }
+    e1@{ animation: fast }
+    OrchestratorAgent e2@-- job_offer --> JobOfferSummarizerAgent
+    e2@{ animation: fast }
+
+    CVLoaderAgent --> JsonCV[(Json Resume CV)]
+    JsonCV --> Tools@{ shape: das, label: "Tools:\n- Tool 1..." }
     Tools --> InitialWriterAgent
     Tools --> RefinementAgent
 
-    Input@{ shape: sl-rect, label: "Input CV Formats" }
-    Input --> CriticAgent
-    Input --> JobOfferSummAgent@{ shape: rect, label: "Job Offer Summarizer Agent" }
-    JobOfferSummAgent -- summarized_job_offer --> InitialWriterAgent@{ shape: rect, label: "Initial Writer Agent" }
+    job_offer --> CriticAgent
+    JobOfferSummarizerAgent@{ shape: rect }
+    JobOfferSummarizerAgent -- summarized_job_offer --> InitialWriterAgent@{ shape: rect }
     InitialWriterAgent -- draft_cv --> CriticAgent
     subgraph Loop refinement
-        CriticAgent@{ shape: rect, label: "Critic Agent" }
-        CriticAgent -- cv_feedback, draft_cv --> RefinementAgent@{ shape: rect, label: "Refinement Agent" }
+        CriticAgent@{ shape: rect }
+        CriticAgent -- cv_feedback, draft_cv --> RefinementAgent@{ shape: rect }
         RefinementAgent -- draft_cv --> CriticAgent
-        Exit@{ shape: das, label: "exit_loop tool" } --> RefinementAgent
+        exit_loop@{ shape: das, label: "exit_loop tool" } --> RefinementAgent
+        RefinementAgent ~~~ exit_loop
     end
     
-    RefinementAgent -- draft_cv --> FinalCV@{ shape: doc, label: "Final Enhanced CV" }
+    RefinementAgent -- draft_cv --> enhanced_cv@{ shape: doc }
+    enhanced_cv --> Stop@{ shape: dbl-circ }
 ```
 
 # TODO
 
 - [ ] Implement the agents
 - [ ] Add a tool to get job descriptions from job offers
-
-    JobOfferSummAgent -- summarized_job_offer --> WriterAgents@{ shape: processes, label: "Writer Agents" }
