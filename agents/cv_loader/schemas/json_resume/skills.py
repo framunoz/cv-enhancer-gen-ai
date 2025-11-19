@@ -18,16 +18,16 @@ from pydantic import BaseModel, Field
 
 
 class SkillItem(BaseModel):
-    name: str = Field(
-        ...,
+    name: str | None = Field(
+        None,
         description="Name of the skill",
     )
-    level: str = Field(
-        ...,
+    level: str | None = Field(
+        None,
         description="Proficiency level of the skill",
     )
-    keywords: list[str] = Field(
-        default_factory=list,
+    keywords: list[str] | None = Field(
+        None,
         description="List of keywords related to the skill",
     )
 

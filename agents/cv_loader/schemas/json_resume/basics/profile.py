@@ -15,17 +15,15 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class Profile(BaseModel):
-    network: str = Field(
-        ...,
+    network: str | None = Field(
+        None,
         description="Name of the social network",
-        min_length=1,
     )
-    username: str = Field(
-        ...,
+    username: str | None = Field(
+        None,
         description="Username on the social network",
-        min_length=1,
     )
-    url: HttpUrl = Field(
-        ...,
+    url: HttpUrl | None = Field(
+        None,
         description="URL to the profile on the social network",
     )

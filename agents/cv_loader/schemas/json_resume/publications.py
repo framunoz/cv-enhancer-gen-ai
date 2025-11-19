@@ -19,24 +19,24 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class PublicationItem(BaseModel):
-    name: str = Field(
-        ...,
+    name: str | None = Field(
+        None,
         description="Name of the publication",
     )
-    publisher: str = Field(
-        ...,
+    publisher: str | None = Field(
+        None,
         description="Publisher of the publication",
     )
-    releaseDate: dt.datetime = Field(
-        ...,
+    releaseDate: dt.datetime | None = Field(
+        None,
         description="Release date of the publication (YYYY-MM-DD)",
     )
-    url: HttpUrl | t.Literal[""] = Field(
-        ...,
+    url: HttpUrl | t.Literal[""] | None = Field(
+        None,
         description="URL of the publication",
     )
-    summary: str = Field(
-        ...,
+    summary: str | None = Field(
+        None,
         description="Summary of the publication",
     )
 

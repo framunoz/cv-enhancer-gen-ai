@@ -18,20 +18,20 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class CertificateItem(BaseModel):
-    name: str = Field(
-        ...,
+    name: str | None = Field(
+        None,
         description="Name of the certificate",
     )
-    date: dt.datetime = Field(
-        ...,
+    date: dt.datetime | None = Field(
+        None,
         description="Date when the certificate was issued (YYYY-MM-DD)",
     )
-    issuer: str = Field(
-        ...,
+    issuer: str | None = Field(
+        None,
         description="Name of the organization or person who issued the certificate",
     )
-    url: HttpUrl | t.Literal[""] = Field(
-        ...,
+    url: HttpUrl | t.Literal[""] | None = Field(
+        None,
         description="URL to the certificate or related information",
     )
 

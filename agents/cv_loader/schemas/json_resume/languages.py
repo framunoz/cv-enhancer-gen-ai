@@ -13,12 +13,12 @@ from pydantic import BaseModel, Field
 
 
 class LanguageItem(BaseModel):
-    language: str = Field(
-        ...,
+    language: str | None = Field(
+        None,
         description="Name of the language",
     )
-    fluency: str = Field(
-        ...,
+    fluency: str | None = Field(
+        None,
         description="Fluency level in the language",
     )
 

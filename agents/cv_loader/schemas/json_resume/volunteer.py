@@ -23,32 +23,32 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class VolunteerItem(BaseModel):
-    organization: str = Field(
-        ...,
+    organization: str | None = Field(
+        None,
         description="Name of the organization",
     )
-    position: str = Field(
-        ...,
+    position: str | None = Field(
+        None,
         description="Position held in the organization",
     )
-    url: HttpUrl | t.Literal[""] = Field(
-        ...,
+    url: HttpUrl | t.Literal[""] | None = Field(
+        None,
         description="URL of the organization",
     )
-    startDate: dt.datetime = Field(
-        ...,
+    startDate: dt.datetime | None = Field(
+        None,
         description="Start date of the volunteer position (YYYY-MM-DD)",
     )
     endDate: dt.datetime | None = Field(
         None,
         description="End date of the volunteer position (YYYY-MM-DD)",
     )
-    summary: str = Field(
-        ...,
+    summary: str | None = Field(
+        None,
         description="Summary of the volunteer work",
     )
-    highlights: list[str] = Field(
-        default_factory=list,
+    highlights: list[str] | None = Field(
+        None,
         description="List of highlights or achievements during the volunteer work",
     )
 

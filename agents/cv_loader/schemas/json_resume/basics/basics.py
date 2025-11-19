@@ -36,47 +36,43 @@ from .profile import Profile
 
 
 class Basics(BaseModel):
-    name: str = Field(
-        ...,
+    name: str | None = Field(
+        None,
         description="Full name of the individual",
-        min_length=1,
     )
-    label: str = Field(
-        ...,
+    label: str | None = Field(
+        None,
         description="Professional title or label",
-        min_length=1,
     )
-    image: HttpUrl | t.Literal[""] = Field(
-        ...,
+    image: HttpUrl | t.Literal[""] | None = Field(
+        None,
         description="URL to the individual's image",
     )
-    email: EmailStr = Field(
-        ...,
+    email: EmailStr | None = Field(
+        None,
         description="Email address",
     )
-    phone: str = Field(
-        ...,
+    phone: str | None = Field(
+        None,
         description="Phone number",
-        min_length=1,
     )
-    url: HttpUrl = Field(
-        ...,
+    url: HttpUrl | None = Field(
+        None,
         description="Personal or professional website URL",
     )
-    summary: str = Field(
-        ...,
+    summary: str | None = Field(
+        None,
         description="A brief summary about the individual",
-        min_length=1,
     )
-    location: Location = Field(
-        ...,
+    location: Location | None = Field(
+        None,
         description=(
             "Location details including address, postal code, city, country code, and"
             " region"
         ),
     )
-    profiles: list[Profile] = Field(
-        default_factory=list,
+    profiles: list[Profile] | None = Field(
+        None,
         description=(
             "List of social media or professional profiles with network, username,"
             " and URL"

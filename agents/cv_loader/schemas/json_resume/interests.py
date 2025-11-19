@@ -16,12 +16,12 @@ from pydantic import BaseModel, Field
 
 
 class InterestItem(BaseModel):
-    name: str = Field(
-        ...,
+    name: str | None = Field(
+        None,
         description="Name of the interest",
     )
-    keywords: list[str] = Field(
-        default_factory=list,
+    keywords: list[str] | None = Field(
+        None,
         description="List of keywords related to the interest",
     )
 

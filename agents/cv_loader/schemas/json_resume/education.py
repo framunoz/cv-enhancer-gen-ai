@@ -24,24 +24,24 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class EducationItem(BaseModel):
-    institution: str = Field(
-        ...,
+    institution: str | None = Field(
+        None,
         description="Name of the educational institution",
     )
-    url: HttpUrl | t.Literal[""] = Field(
-        ...,
+    url: HttpUrl | t.Literal[""] | None = Field(
+        None,
         description="URL of the educational institution",
     )
-    area: str = Field(
-        ...,
+    area: str | None = Field(
+        None,
         description="Area of study",
     )
-    studyType: str = Field(
-        ...,
+    studyType: str | None = Field(
+        None,
         description="Type of study (e.g., Bachelor, Master)",
     )
-    startDate: dt.datetime = Field(
-        ...,
+    startDate: dt.datetime | None = Field(
+        None,
         description="Start date of the education (YYYY-MM-DD)",
     )
     endDate: dt.datetime | None = Field(
@@ -52,8 +52,8 @@ class EducationItem(BaseModel):
         None,
         description="Score or grade achieved",
     )
-    courses: list[str] = Field(
-        default_factory=list,
+    courses: list[str] | None = Field(
+        None,
         description="List of relevant courses taken",
     )
 

@@ -17,16 +17,16 @@ from pydantic import BaseModel, Field
 
 
 class AwardItem(BaseModel):
-    title: str = Field(
-        ...,
+    title: str | None = Field(
+        None,
         description="Title of the award",
     )
-    date: dt.datetime = Field(
-        ...,
+    date: dt.datetime | None = Field(
+        None,
         description="Date when the award was received (YYYY-MM-DD)",
     )
-    awarder: str = Field(
-        ...,
+    awarder: str | None = Field(
+        None,
         description="Name of the organization or person who gave the award",
     )
     summary: str | None = Field(

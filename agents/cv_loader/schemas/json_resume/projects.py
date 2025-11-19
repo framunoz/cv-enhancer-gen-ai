@@ -22,28 +22,28 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class ProjectItem(BaseModel):
-    name: str = Field(
-        ...,
+    name: str | None = Field(
+        None,
         description="Name of the project",
     )
-    startDate: dt.datetime = Field(
-        ...,
+    startDate: dt.datetime | None = Field(
+        None,
         description="Start date of the project (YYYY-MM-DD)",
     )
     endDate: dt.datetime | None = Field(
         None,
         description="End date of the project (YYYY-MM-DD)",
     )
-    description: str = Field(
-        ...,
+    description: str | None = Field(
+        None,
         description="Description of the project",
     )
-    highlights: list[str] = Field(
-        default_factory=list,
+    highlights: list[str] | None = Field(
+        None,
         description="List of highlights or achievements in the project",
     )
-    url: HttpUrl | t.Literal[""] = Field(
-        ...,
+    url: HttpUrl | t.Literal[""] | None = Field(
+        None,
         description="URL of the project",
     )
 

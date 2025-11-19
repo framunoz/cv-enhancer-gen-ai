@@ -21,52 +21,52 @@ class JsonResume(BaseModel):
     See: https://jsonresume.org/schema/
     """
 
-    basics: Basics = Field(
-        ...,
+    basics: Basics | None = Field(
+        None,
         description="Basic information about the individual",
     )
-    work: list[WorkItem] = Field(
-        default_factory=list,
+    work: list[WorkItem] | None = Field(
+        None,
         description="List of work experiences",
     )
-    volunteer: list[VolunteerItem] = Field(
-        default_factory=list,
+    volunteer: list[VolunteerItem] | None = Field(
+        None,
         description="List of volunteer experiences",
     )
-    education: list[EducationItem] = Field(
-        default_factory=list,
+    education: list[EducationItem] | None = Field(
+        None,
         description="List of educational qualifications",
     )
-    awards: list[AwardItem] = Field(
-        default_factory=list,
+    awards: list[AwardItem] | None = Field(
+        None,
         description="List of awards received",
     )
-    certificates: list[CertificateItem] = Field(
-        default_factory=list,
+    certificates: list[CertificateItem] | None = Field(
+        None,
         description="List of certificates obtained",
     )
-    publications: list[PublicationItem] = Field(
-        default_factory=list,
+    publications: list[PublicationItem] | None = Field(
+        None,
         description="List of publications",
     )
-    skills: list[SkillItem] = Field(
-        default_factory=list,
+    skills: list[SkillItem] | None = Field(
+        None,
         description="List of skills",
     )
-    languages: list[LanguageItem] = Field(
-        default_factory=list,
+    languages: list[LanguageItem] | None = Field(
+        None,
         description="List of languages known",
     )
-    interests: list[InterestItem] = Field(
-        default_factory=list,
+    interests: list[InterestItem] | None = Field(
+        None,
         description="List of interests",
     )
-    references: list[ReferenceItem] = Field(
-        default_factory=list,
+    references: list[ReferenceItem] | None = Field(
+        None,
         description="List of references",
     )
-    projects: list[ProjectItem] = Field(
-        default_factory=list,
+    projects: list[ProjectItem] | None = Field(
+        None,
         description="List of projects",
     )
 
@@ -79,7 +79,7 @@ __JSON_RESUME_EXAMPLE = {
         "email": "john@gmail.com",
         "phone": "(912) 555-4321",
         "url": "https://johndoe.com",
-        "summary": "A summary of John Doe…",
+        "summary": "A summary of John Doe...",
         "location": {
             "address": "2712 Broadway St",
             "postalCode": "CA 94115",
@@ -100,7 +100,7 @@ __JSON_RESUME_EXAMPLE = {
             "url": "https://company.com",
             "startDate": "2013-01-01",
             "endDate": "2014-01-01",
-            "summary": "Description…",
+            "summary": "Description...",
             "highlights": ["Started the company"],
         },
         {
@@ -108,7 +108,7 @@ __JSON_RESUME_EXAMPLE = {
             "position": "President",
             "url": "https://company.com",
             "startDate": "2013-01-01",
-            "summary": "Description…",
+            "summary": "Description...",
             "highlights": ["Started the company"],
         },
     ],
@@ -118,7 +118,7 @@ __JSON_RESUME_EXAMPLE = {
         "url": "https://organization.com/",
         "startDate": "2012-01-01",
         "endDate": "2013-01-01",
-        "summary": "Description…",
+        "summary": "Description...",
         "highlights": ["Awarded 'Volunteer of the Month'"],
     }],
     "education": [{
@@ -148,7 +148,7 @@ __JSON_RESUME_EXAMPLE = {
         "publisher": "Company",
         "releaseDate": "2014-10-01",
         "url": "https://publication.com",
-        "summary": "Description…",
+        "summary": "Description...",
     }],
     "skills": [{
         "name": "Web Development",
@@ -157,7 +157,7 @@ __JSON_RESUME_EXAMPLE = {
     }],
     "languages": [{"language": "English", "fluency": "Native speaker"}],
     "interests": [{"name": "Wildlife", "keywords": ["Ferrets", "Unicorns"]}],
-    "references": [{"name": "Jane Doe", "reference": "Reference…"}],
+    "references": [{"name": "Jane Doe", "reference": "Reference..."}],
     "projects": [{
         "name": "Project",
         "startDate": "2019-01-01",
@@ -174,5 +174,6 @@ try:
     from rich import print as rprint
 
     rprint(JsonResume(**__JSON_RESUME_EXAMPLE))
+    rprint(JsonResume(**{}))
 except ImportError:
     pass

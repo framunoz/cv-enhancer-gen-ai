@@ -13,12 +13,12 @@ from pydantic import BaseModel, Field
 
 
 class ReferenceItem(BaseModel):
-    name: str = Field(
-        ...,
+    name: str | None = Field(
+        None,
         description="Name of the reference",
     )
-    reference: str = Field(
-        ...,
+    reference: str | None = Field(
+        None,
         description="Reference text or statement",
     )
 

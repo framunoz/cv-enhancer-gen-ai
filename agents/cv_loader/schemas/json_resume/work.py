@@ -23,31 +23,31 @@ from pydantic import BaseModel, Field, HttpUrl
 
 
 class WorkItem(BaseModel):
-    name: str = Field(
-        ...,
+    name: str | None = Field(
+        None,
         description="Name of the company or organization",
     )
-    position: str = Field(
-        ...,
+    position: str | None = Field(
+        None,
         description="Position held at the company",
     )
-    url: HttpUrl | t.Literal[""] = Field(
-        ...,
+    url: HttpUrl | t.Literal[""] | None = Field(
+        None,
         description="URL of the company or organization",
     )
-    startDate: dt.datetime = Field(
-        ...,
+    startDate: dt.datetime | None = Field(
+        None,
         description="Start date of the position (YYYY-MM-DD)",
     )
     endDate: dt.datetime | None = Field(
         None,
         description="End date of the position (YYYY-MM-DD)",
     )
-    summary: str = Field(
-        ...,
+    summary: str | None = Field(
+        None,
         description="Summary of the role and responsibilities",
     )
-    highlights: list[str] = Field(
-        default_factory=list,
+    highlights: list[str] | None = Field(
+        None,
         description="List of highlights or achievements in this role",
     )
