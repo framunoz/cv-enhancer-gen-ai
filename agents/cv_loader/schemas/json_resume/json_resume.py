@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 
 from .awards import AwardItem
-from .basics.basics import Basics
+from .basics import Basics
 from .certificates import CertificateItem
 from .education import EducationItem
 from .interests import InterestItem
