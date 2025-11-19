@@ -12,6 +12,7 @@ Schema for this part of the json resume:
 ```
 """
 
+import datetime as dt
 import typing as t
 
 from pydantic import BaseModel, Field, HttpUrl
@@ -26,7 +27,7 @@ class PublicationItem(BaseModel):
         ...,
         description="Publisher of the publication",
     )
-    releaseDate: str = Field(
+    releaseDate: dt.datetime = Field(
         ...,
         description="Release date of the publication (YYYY-MM-DD)",
     )

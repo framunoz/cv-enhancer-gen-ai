@@ -11,6 +11,7 @@ Schema for this part of the json resume:
 ```
 """
 
+import datetime as dt
 import typing as t
 
 from pydantic import BaseModel, Field, HttpUrl
@@ -21,7 +22,7 @@ class CertificateItem(BaseModel):
         ...,
         description="Name of the certificate",
     )
-    date: str = Field(
+    date: dt.datetime = Field(
         ...,
         description="Date when the certificate was issued (YYYY-MM-DD)",
     )

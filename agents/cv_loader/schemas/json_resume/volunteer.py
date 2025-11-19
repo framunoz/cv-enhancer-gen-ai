@@ -16,6 +16,7 @@ Schema for this part of the json resume:
 ```
 """
 
+import datetime as dt
 import typing as t
 
 from pydantic import BaseModel, Field, HttpUrl
@@ -34,11 +35,11 @@ class VolunteerItem(BaseModel):
         ...,
         description="URL of the organization",
     )
-    startDate: str = Field(
+    startDate: dt.datetime = Field(
         ...,
         description="Start date of the volunteer position (YYYY-MM-DD)",
     )
-    endDate: str | None = Field(
+    endDate: dt.datetime | None = Field(
         None,
         description="End date of the volunteer position (YYYY-MM-DD)",
     )

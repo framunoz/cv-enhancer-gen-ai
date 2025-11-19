@@ -144,3 +144,10 @@ __JSON_RESUME_EXAMPLE = {
 }
 
 assert JsonResume.model_validate(__JSON_RESUME_EXAMPLE)  # noqa: S101
+
+try:
+    from rich import print as rprint
+
+    rprint(JsonResume(**__JSON_RESUME_EXAMPLE))
+except ImportError:
+    pass

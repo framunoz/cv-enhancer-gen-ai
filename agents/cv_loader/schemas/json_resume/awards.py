@@ -11,6 +11,8 @@ Schema for this part of the json resume:
 ```
 """
 
+import datetime as dt
+
 from pydantic import BaseModel, Field
 
 
@@ -19,7 +21,7 @@ class AwardItem(BaseModel):
         ...,
         description="Title of the award",
     )
-    date: str = Field(
+    date: dt.datetime = Field(
         ...,
         description="Date when the award was received (YYYY-MM-DD)",
     )
