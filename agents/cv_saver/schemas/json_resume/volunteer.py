@@ -22,7 +22,24 @@ import typing as t
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class VolunteerItem(BaseModel):
+class VolunteerItemEssential(BaseModel):
+    organization: str | None = Field(
+        None,
+        description="Name of the organization",
+    )
+    summary: str | None = Field(
+        None,
+        description="Summary of the volunteer work",
+    )
+    highlights: list[str] | None = Field(
+        None,
+        description="List of highlights or achievements during the volunteer work",
+    )
+
+
+class VolunteerItem(
+    BaseModel,
+):
     organization: str | None = Field(
         None,
         description="Name of the organization",
@@ -52,15 +69,22 @@ class VolunteerItem(BaseModel):
         description="List of highlights or achievements during the volunteer work",
     )
 
+    def get_essential(self) -> VolunteerItemEssential:
+        return VolunteerItemEssential(
+            organization=self.organization,
+            summary=self.summary,
+            highlights=self.highlights,
+        )
 
-__VOLUNTEER_ITEM_EXAMPLE = {
-    "organization": "Organization",
-    "position": "Volunteer",
-    "url": "https://organization.com/",
-    "startDate": "2012-01-01",
-    "endDate": "2013-01-01",
-    "summary": "Description…",
-    "highlights": ["Awarded 'Volunteer of the Month'"],
-}
+    __EXAMPLE__ = {
+        "organization": "Organization",
+        "position": "Volunteer",
+        "url": "https://organization.com/",
+        "startDate": "2012-01-01",
+        "endDate": "2013-01-01",
+        "summary": "Description…",
+        "highlights": ["Awarded 'Volunteer of the Month'"],
+    }
 
-assert VolunteerItem.model_validate(__VOLUNTEER_ITEM_EXAMPLE)  # noqa: S101
+
+assert VolunteerItem.model_validate(VolunteerItem.__EXAMPLE__)  # noqa: S101

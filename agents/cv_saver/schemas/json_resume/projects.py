@@ -21,7 +21,24 @@ import typing as t
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class ProjectItem(BaseModel):
+class ProjectItemEssential(BaseModel):
+    name: str | None = Field(
+        None,
+        description="Name of the project",
+    )
+    description: str | None = Field(
+        None,
+        description="Description of the project",
+    )
+    highlights: list[str] | None = Field(
+        None,
+        description="List of highlights or achievements in the project",
+    )
+
+
+class ProjectItem(
+    BaseModel,
+):
     name: str | None = Field(
         None,
         description="Name of the project",
@@ -47,14 +64,21 @@ class ProjectItem(BaseModel):
         description="URL of the project",
     )
 
+    def get_essential(self) -> ProjectItemEssential:
+        return ProjectItemEssential(
+            name=self.name,
+            description=self.description,
+            highlights=self.highlights,
+        )
 
-__PROJECT_ITEM_EXAMPLE = {
-    "name": "Project",
-    "startDate": "2019-01-01",
-    "endDate": "2021-01-01",
-    "description": "Description...",
-    "highlights": ["Won award at AIHacks 2016"],
-    "url": "https://project.com/",
-}
+    __EXAMPLE__ = {
+        "name": "Project",
+        "startDate": "2019-01-01",
+        "endDate": "2021-01-01",
+        "description": "Description...",
+        "highlights": ["Won award at AIHacks 2016"],
+        "url": "https://project.com/",
+    }
 
-assert ProjectItem.model_validate(__PROJECT_ITEM_EXAMPLE)  # noqa: S101
+
+assert ProjectItem.model_validate(ProjectItem.__EXAMPLE__)  # noqa: S101

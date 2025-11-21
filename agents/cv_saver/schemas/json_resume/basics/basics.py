@@ -35,6 +35,13 @@ from .location import Location
 from .profile import Profile
 
 
+class BasicsEssential(BaseModel):
+    summary: str | None = Field(
+        None,
+        description="A brief summary about the individual",
+    )
+
+
 class Basics(BaseModel):
     name: str | None = Field(
         None,
@@ -79,29 +86,32 @@ class Basics(BaseModel):
         ),
     )
 
+    def get_essential(self) -> BasicsEssential:
+        return BasicsEssential(
+            summary=self.summary,
+        )
 
-__BASICS_SCHEMA_EXAMPLE = {
-    "name": "John Doe",
-    "label": "Programmer",
-    "image": "",
-    "email": "john@gmail.com",
-    "phone": "(912) 555-4321",
-    "url": "https://johndoe.com",
-    "summary": "A summary of John Doe…",
-    "location": {
-        "address": "2712 Broadway St",
-        "postalCode": "CA 94115",
-        "city": "San Francisco",
-        "countryCode": "US",
-        "region": "California",
-    },
-    "profiles": [{
-        "network": "Twitter",
-        "username": "john",
-        "url": "https://twitter.com/john",
-    }],
-}
+    __EXAMPLE__ = {
+        "name": "John Doe",
+        "label": "Programmer",
+        "image": "",
+        "email": "john@gmail.com",
+        "phone": "(912) 555-4321",
+        "url": "https://johndoe.com",
+        "summary": "A summary of John Doe…",
+        "location": {
+            "address": "2712 Broadway St",
+            "postalCode": "CA 94115",
+            "city": "San Francisco",
+            "countryCode": "US",
+            "region": "California",
+        },
+        "profiles": [{
+            "network": "Twitter",
+            "username": "john",
+            "url": "https://twitter.com/john",
+        }],
+    }
 
-assert Basics(  # noqa: S101
-    **__BASICS_SCHEMA_EXAMPLE
-), "Example does not conform to schema"
+
+assert Basics(**Basics.__EXAMPLE__), "Example does not conform to schema"  # noqa: S101

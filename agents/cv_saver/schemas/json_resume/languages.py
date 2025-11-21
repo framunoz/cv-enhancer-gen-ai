@@ -12,7 +12,13 @@ Schema for this part of the json resume:
 from pydantic import BaseModel, Field
 
 
-class LanguageItem(BaseModel):
+class LanguageItemEssential(BaseModel):
+    pass
+
+
+class LanguageItem(
+    BaseModel,
+):
     language: str | None = Field(
         None,
         description="Name of the language",
@@ -22,11 +28,13 @@ class LanguageItem(BaseModel):
         description="Fluency level in the language",
     )
 
+    def get_essential(self) -> LanguageItemEssential:
+        return LanguageItemEssential()
 
-__LANGUAGE_ITEM_EXAMPLE = {
-    "language": "English",
-    "fluency": "Native speaker",
-}
+    __EXAMPLE__ = {
+        "language": "English",
+        "fluency": "Native speaker",
+    }
 
 
-assert LanguageItem.model_validate(__LANGUAGE_ITEM_EXAMPLE)  # noqa: S101
+assert LanguageItem.model_validate(LanguageItem.__EXAMPLE__)  # noqa: S101

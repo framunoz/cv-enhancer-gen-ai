@@ -16,6 +16,17 @@ import datetime as dt
 from pydantic import BaseModel, Field
 
 
+class AwardItemEssential(BaseModel):
+    title: str | None = Field(
+        None,
+        description="Title of the award",
+    )
+    summary: str | None = Field(
+        None,
+        description="Summary or description of the award",
+    )
+
+
 class AwardItem(BaseModel):
     title: str | None = Field(
         None,
@@ -34,12 +45,18 @@ class AwardItem(BaseModel):
         description="Summary or description of the award",
     )
 
+    def get_essential(self) -> AwardItemEssential:
+        return AwardItemEssential(
+            title=self.title,
+            summary=self.summary,
+        )
 
-__AWARD_ITEM_EXAMPLE = {
-    "title": "Award",
-    "date": "2014-11-01",
-    "awarder": "Company",
-    "summary": "There is no spoon.",
-}
+    __EXAMPLE__ = {
+        "title": "Award",
+        "date": "2014-11-01",
+        "awarder": "Company",
+        "summary": "There is no spoon.",
+    }
 
-assert AwardItem.model_validate(__AWARD_ITEM_EXAMPLE)  # noqa: S101
+
+assert AwardItem.model_validate(AwardItem.__EXAMPLE__)  # noqa: S101

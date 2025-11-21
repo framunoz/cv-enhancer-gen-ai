@@ -18,7 +18,20 @@ import typing as t
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class PublicationItem(BaseModel):
+class PublicationItemEssential(BaseModel):
+    name: str | None = Field(
+        None,
+        description="Name of the publication",
+    )
+    summary: str | None = Field(
+        None,
+        description="Summary of the publication",
+    )
+
+
+class PublicationItem(
+    BaseModel,
+):
     name: str | None = Field(
         None,
         description="Name of the publication",
@@ -40,13 +53,19 @@ class PublicationItem(BaseModel):
         description="Summary of the publication",
     )
 
+    def get_essential(self) -> PublicationItemEssential:
+        return PublicationItemEssential(
+            name=self.name,
+            summary=self.summary,
+        )
 
-__PUBLICATION_ITEM_EXAMPLE = {
-    "name": "Publication",
-    "publisher": "Company",
-    "releaseDate": "2014-10-01",
-    "url": "https://publication.com",
-    "summary": "Description…",
-}
+    __EXAMPLE__ = {
+        "name": "Publication",
+        "publisher": "Company",
+        "releaseDate": "2014-10-01",
+        "url": "https://publication.com",
+        "summary": "Description…",
+    }
 
-assert PublicationItem.model_validate(__PUBLICATION_ITEM_EXAMPLE)  # noqa: S101
+
+assert PublicationItem.model_validate(PublicationItem.__EXAMPLE__)  # noqa: S101
