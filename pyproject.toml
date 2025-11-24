@@ -39,6 +39,7 @@ select = [
 ]
 ignore = [
     "N815",  # class names should use CapWords convention
+    "E501",  # line too long
     # "E501",  # line too long
     # "F821",  # undefined name
 ]
