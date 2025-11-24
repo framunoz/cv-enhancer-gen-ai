@@ -56,5 +56,6 @@ project-includes = [
 
 [dependency-groups]
 dev = [
+    "jupyter>=1.1.1",
     "rich>=14.2.0",
 ]

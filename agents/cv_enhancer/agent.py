@@ -1,4 +1,5 @@
 from google.adk.agents.sequential_agent import SequentialAgent
+from rich import print as rprint
 
 from .sub_agents.job_offer_summarizer import job_offer_summarizer_agent
 from .sub_agents.writer import writer_agent
