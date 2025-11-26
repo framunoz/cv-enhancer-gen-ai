@@ -72,6 +72,10 @@ class WorkItem(
         None,
         description="List of highlights or achievements in this role",
     )
+    keywords: list[str] | None = Field(
+        None,
+        description="List of keywords extracted from the work item",
+    )
 
     def get_essential(self) -> WorkItemEssential:
         return WorkItemEssential(

@@ -35,6 +35,10 @@ class VolunteerItemEssential(BaseModel):
         None,
         description="List of highlights or achievements during the volunteer work",
     )
+    keywords: list[str] | None = Field(
+        None,
+        description="List of keywords extracted from the volunteer item",
+    )
 
 
 class VolunteerItem(

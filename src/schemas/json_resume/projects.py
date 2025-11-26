@@ -63,6 +63,10 @@ class ProjectItem(
         None,
         description="URL of the project",
     )
+    keywords: list[str] | None = Field(
+        None,
+        description="List of keywords extracted from the project item",
+    )
 
     def get_essential(self) -> ProjectItemEssential:
         return ProjectItemEssential(

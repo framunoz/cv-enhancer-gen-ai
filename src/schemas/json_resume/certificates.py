@@ -41,6 +41,10 @@ class CertificateItem(BaseModel):
         None,
         description="URL to the certificate or related information",
     )
+    keywords: list[str] | None = Field(
+        None,
+        description="List of keywords extracted from the certificate item",
+    )
 
     def get_essential(self) -> CertificateItemEssential:
         return CertificateItemEssential(
