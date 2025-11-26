@@ -1,0 +1,380 @@
+{
+    "basics": {
+        "name": "Andrea Pérez García",
+        "label": "Ingeniera de Software y Arquitecta Cloud",
+        "image": "",
+        "email": "andrea.perez.dev@email.com",
+        "phone": "(+34) 600 123 456",
+        "url": "https://www.linkedin.com/in/andreaperezdev",
+        "summary": "Profesional con 10 años de experiencia en el desarrollo de software, especializada en arquitectura de sistemas escalables y migración a entornos cloud. Busco aplicar mi experiencia en liderazgo técnico y gestión de proyectos complejos, impulsando la innovación y la eficiencia operativa en un nuevo desafío.",
+        "location": {
+            "address": "Calle Ficticia 123",
+            "postalCode": "28080",
+            "city": "Madrid",
+            "countryCode": "ES",
+            "region": "Comunidad de Madrid"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "andreaperezdev",
+                "url": "https://www.linkedin.com/in/andreaperezdev"
+            },
+            {
+                "network": "GitHub",
+                "username": "aperez-dev",
+                "url": "https://github.com/aperez-dev"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "TechGlobal Solutions",
+            "position": "Arquitecta Principal de Soluciones",
+            "url": "https://www.techglobal.com",
+            "startDate": "2023-01-01",
+            "endDate": null,
+            "summary": "Liderazgo técnico en la definición e implementación de arquitecturas basadas en microservicios en AWS. Enfocada en la optimización de costes y la resiliencia de los sistemas críticos.",
+            "highlights": [
+                "Diseñé e implementé una migración 'lift-and-shift' al cloud que resultó en un ahorro operativo del 20%.",
+                "Mentoría a 5 equipos de desarrollo sobre prácticas de DevOps y CI/CD."
+            ],
+            "keywords": [
+                "AWS",
+                "Microservices",
+                "DevOps",
+                "Cloud Migration",
+                "Leadership"
+            ]
+        },
+        {
+            "name": "Innovación Digital S.A.",
+            "position": "Ingeniera de Software Senior",
+            "url": "https://www.innovaciondigital.com",
+            "startDate": "2019-06-01",
+            "endDate": "2022-12-31",
+            "summary": "Desarrollo full-stack de plataformas e-commerce de alto tráfico. Responsable de la refactorización de código legado.",
+            "highlights": [
+                "Reduje la latencia de la API principal en un 35% mediante la optimización de consultas SQL y caching.",
+                "Implementé pruebas unitarias y de integración que aumentaron la cobertura del código al 90%."
+            ],
+            "keywords": [
+                "Full-stack",
+                "E-commerce",
+                "Performance Tuning",
+                "Refactoring",
+                "Testing"
+            ]
+        },
+        {
+            "name": "Global Data Systems",
+            "position": "Desarrolladora de Backend",
+            "url": "https://www.globaldata.net",
+            "startDate": "2016-08-01",
+            "endDate": "2019-05-31",
+            "summary": "Participación en el desarrollo de APIs RESTful para servicios financieros.",
+            "highlights": [
+                "Desarrollo de nuevas funcionalidades y mantenimiento de la base de datos de clientes.",
+                "Colaboración en la documentación técnica de las APIs."
+            ],
+            "keywords": [
+                "Backend Development",
+                "RESTful APIs",
+                "SQL",
+                "Documentation"
+            ]
+        },
+        {
+            "name": "Startup Ágil",
+            "position": "Desarrolladora Junior",
+            "url": "https://www.startupagil.co",
+            "startDate": "2015-01-01",
+            "endDate": "2016-07-31",
+            "summary": "Primer rol profesional enfocado en el desarrollo frontend y soporte al cliente.",
+            "highlights": [
+                "Utilización de frameworks JavaScript para el desarrollo de la interfaz de usuario.",
+                "Resolución de bugs críticos en producción."
+            ],
+            "keywords": [
+                "Frontend",
+                "JavaScript",
+                "UI/UX",
+                "Bug Fixing"
+            ]
+        },
+        {
+            "name": "Universidad Tecnológica",
+            "position": "Becaria de Investigación (Intern)",
+            "url": "https://www.utec.edu",
+            "startDate": "2014-06-01",
+            "endDate": "2014-12-31",
+            "summary": "Colaboración en un proyecto de machine learning para optimización de algoritmos de búsqueda.",
+            "highlights": [
+                "Recolección y preprocesamiento de grandes conjuntos de datos.",
+                "Análisis de rendimiento de algoritmos en Python."
+            ],
+            "keywords": [
+                "Machine Learning",
+                "Data Analysis",
+                "Python",
+                "Research"
+            ]
+        }
+    ],
+    "volunteer": [
+        {
+            "organization": "Code for Good España",
+            "position": "Mentor/Desarrollador Voluntario",
+            "url": "https://www.codeforgood.es",
+            "startDate": "2021-01-01",
+            "summary": "Colaboración en la creación de herramientas digitales para ONG locales. Mentoría a nuevos desarrolladores.",
+            "highlights": [
+                "Desarrollo de un sistema de gestión de donaciones para una ONG.",
+                "Impartición de talleres de introducción a Python."
+            ],
+            "keywords": [
+                "Mentoring",
+                "Non-profit",
+                "Digital Tools",
+                "Community"
+            ]
+        },
+        {
+            "organization": "Open Source Initiative",
+            "position": "Colaboradora de Documentación",
+            "url": "https://opensource.org",
+            "startDate": "2018-03-01",
+            "endDate": "2020-12-31",
+            "summary": "Contribución a la documentación de proyectos open source, asegurando claridad y precisión técnica.",
+            "highlights": [
+                "Traducción y revisión técnica de manuales de usuario."
+            ],
+            "keywords": [
+                "Open Source",
+                "Documentation",
+                "Technical Writing"
+            ]
+        },
+        {
+            "organization": "Club de Programación Juvenil",
+            "position": "Instructora",
+            "url": "https://www.clubprogramacion.org",
+            "startDate": "2015-09-01",
+            "endDate": "2016-06-30",
+            "summary": "Enseñanza de los fundamentos de la programación a jóvenes de 12 a 16 años.",
+            "highlights": [
+                "Organización de un hackathon para estudiantes."
+            ],
+            "keywords": [
+                "Education",
+                "Instruction",
+                "Youth Programs",
+                "Hackathon"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "Universidad Internacional de Tecnología",
+            "url": "https://www.uit.es",
+            "area": "Arquitectura de Sistemas Distribuidos",
+            "studyType": "Máster Oficial",
+            "startDate": "2023-09-01",
+            "endDate": "2025-06-30",
+            "score": "9.5/10 (Sobresaliente)",
+            "courses": [
+                "Diseño de Microservicios",
+                "DevOps y Automatización Cloud",
+                "Seguridad en la Nube"
+            ],
+            "keywords": [
+                "Distributed Systems",
+                "Cloud Architecture",
+                "DevOps",
+                "Graduate Studies"
+            ]
+        },
+        {
+            "institution": "Universidad Politécnica de Madrid",
+            "url": "https://www.upm.es",
+            "area": "Ingeniería Informática",
+            "studyType": "Grado Universitario (Bachelor)",
+            "startDate": "2010-09-01",
+            "endDate": "2014-06-30",
+            "score": "8.2/10",
+            "courses": [
+                "Estructura de Datos",
+                "Bases de Datos Avanzadas",
+                "Programación Orientada a Objetos"
+            ],
+            "keywords": [
+                "Computer Science",
+                "Programming",
+                "Databases",
+                "OOP"
+            ]
+        }
+    ],
+    "certificates": [
+        {
+            "name": "Certificación AWS Solutions Architect – Professional",
+            "date": "2024-03-15",
+            "issuer": "Amazon Web Services (AWS)",
+            "url": "",
+            "id": "",
+            "summary": "Validación de la experiencia en el diseño de arquitecturas de sistemas escalables y de alta disponibilidad en AWS.",
+            "keywords": [
+                "AWS",
+                "Cloud Architecture",
+                "Solutions Architect",
+                "Scalability"
+            ]
+        },
+        {
+            "name": "Certified ScrumMaster (CSM)",
+            "date": "2022-11-20",
+            "issuer": "Scrum Alliance",
+            "url": "",
+            "id": "",
+            "summary": "Certificación que demuestra comprensión del framework Scrum y habilidades para actuar como Scrum Master.",
+            "keywords": [
+                "Agile",
+                "Scrum",
+                "Project Management",
+                "CSM"
+            ]
+        },
+        {
+            "name": "Certificado de Inglés Avanzado (C2)",
+            "date": "2018-07-01",
+            "issuer": "Cambridge Assessment English",
+            "url": "",
+            "id": "",
+            "summary": "Nivel C2 en el Marco Común Europeo de Referencia para las Lenguas.",
+            "keywords": [
+                "English",
+                "C2 Level",
+                "Language Skills"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "OptiTrack (Gestor de Tareas)",
+            "description": "Aplicación web para la gestión personal del tiempo usando la técnica Pomodoro, construida con React y Firebase.",
+            "highlights": [
+                "Implementación de autenticación de usuarios y persistencia de datos en Firestore.",
+                "Diseño responsivo con Tailwind CSS."
+            ],
+            "keywords": [
+                "React",
+                "Firebase",
+                "Tailwind CSS",
+                "Gestión del Tiempo"
+            ],
+            "url": "https://github.com/aperez-dev/optitrack-app"
+        },
+        {
+            "name": "API de Citas Célebres",
+            "description": "API RESTful escrita en Python (Flask) que sirve una colección de más de 1000 citas. Desplegada en un contenedor Docker.",
+            "highlights": [
+                "Uso de base de datos SQLite.",
+                "Documentación con Swagger/OpenAPI."
+            ],
+            "keywords": [
+                "Python",
+                "Flask",
+                "REST API",
+                "Docker"
+            ],
+            "url": "https://github.com/aperez-dev/quotes-api"
+        },
+        {
+            "name": "Visualizador de Datos Bursátiles",
+            "description": "Herramienta de escritorio (Electron) para visualizar tendencias de acciones en tiempo real, consumiendo datos de una API pública.",
+            "highlights": [
+                "Uso de librerías de gráficos (Chart.js) para la representación de datos.",
+                "Implementación de modo oscuro/claro."
+            ],
+            "keywords": [
+                "Electron",
+                "JavaScript",
+                "Chart.js",
+                "Finanzas"
+            ],
+            "url": "https://github.com/aperez-dev/stock-viz-tool"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Lenguajes de Programación",
+            "level": "Master",
+            "keywords": [
+                "Python",
+                "JavaScript (ES6+)",
+                "TypeScript",
+                "Java"
+            ]
+        },
+        {
+            "name": "Cloud & DevOps",
+            "level": "Avanzado",
+            "keywords": [
+                "AWS (EC2, Lambda, S3, RDS, VPC)",
+                "Docker",
+                "Kubernetes",
+                "Terraform",
+                "CI/CD (GitHub Actions, Jenkins)"
+            ]
+        },
+        {
+            "name": "Bases de Datos",
+            "level": "Intermedio",
+            "keywords": [
+                "PostgreSQL",
+                "MySQL",
+                "MongoDB",
+                "Redis"
+            ]
+        }
+    ],
+    "interests": [
+        {
+            "name": "Tecnología",
+            "keywords": [
+                "Inteligencia Artificial",
+                "Computación Cuántica",
+                "Ciberseguridad",
+                "Blockchain"
+            ]
+        },
+        {
+            "name": "Deportes",
+            "keywords": [
+                "Senderismo",
+                "Yoga",
+                "Ciclismo de montaña"
+            ]
+        },
+        {
+            "name": "Cultura",
+            "keywords": [
+                "Literatura Fantástica",
+                "Cine de Autor",
+                "Aprendizaje de Idiomas"
+            ]
+        }
+    ],
+    "references": [
+        {
+            "name": "Dr. Javier Ríos",
+            "reference": "Javier fue mi supervisor directo en Innovación Digital S.A. (2019-2022). Puede hablar sobre mi liderazgo técnico y mis habilidades de resolución de problemas.",
+            "contact": "javier.rios@innovaciondigital.com"
+        },
+        {
+            "name": "María Gómez",
+            "reference": "María es la Directora de la ONG en Code for Good España. Puede dar fe de mi compromiso con el voluntariado y mis habilidades de mentoría.",
+            "contact": "maria.gomez@codeforgood.es"
+        }
+    ]
+}

@@ -207,6 +207,7 @@ marimo/_lsp/
 __marimo__/
 
 
-db/
+db/*
+!db/*example.json
 
 main.py

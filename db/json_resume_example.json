@@ -1,0 +1,387 @@
+{
+    "basics": {
+        "name": "Andrea Perez Garcia",
+        "label": "Software Engineer and Cloud Architect",
+        "image": "",
+        "email": "andrea.perez.dev@email.com",
+        "phone": "(+34) 600 123 456",
+        "url": "https://www.linkedin.com/in/andreaperezdev",
+        "summary": "Professional with 10 years of experience in software development, specializing in scalable systems architecture and migration to cloud environments. I seek to apply my experience in technical leadership and complex project management, driving innovation and operational efficiency in a new challenge.",
+        "location": {
+            "address": "Calle Ficticia 123",
+            "postalCode": "28080",
+            "city": "Madrid",
+            "countryCode": "ES",
+            "region": "Comunidad de Madrid"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "andreaperezdev",
+                "url": "https://www.linkedin.com/in/andreaperezdev"
+            },
+            {
+                "network": "GitHub",
+                "username": "aperez-dev",
+                "url": "https://github.com/aperez-dev"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "TechGlobal Solutions",
+            "position": "Principal Solutions Architect",
+            "url": "https://www.techglobal.com",
+            "startDate": "2023-01-01",
+            "endDate": null,
+            "summary": "Technical leadership in the definition and implementation of microservices-based architectures in AWS. Focused on cost optimization and resilience of critical systems.",
+            "highlights": [
+                "Designed and implemented a 'lift-and-shift' cloud migration resulting in 20% operational savings.",
+                "Mentored 5 development teams on DevOps and CI/CD best practices."
+            ],
+            "keywords": [
+                "AWS",
+                "Microservices",
+                "DevOps",
+                "Cloud Migration",
+                "Leadership"
+            ]
+        },
+        {
+            "name": "Innovación Digital S.A.",
+            "position": "Senior Software Engineer",
+            "url": "https://www.innovaciondigital.com",
+            "startDate": "2019-06-01",
+            "endDate": "2022-12-31",
+            "summary": "Full-stack development of high-traffic e-commerce platforms. Responsible for refactoring legacy code.",
+            "highlights": [
+                "Reduced main API latency by 35% through SQL query optimization and caching.",
+                "Implemented unit and integration tests, increasing code coverage to 90%."
+            ],
+            "keywords": [
+                "Full-stack",
+                "E-commerce",
+                "Performance Tuning",
+                "Refactoring",
+                "Testing"
+            ]
+        },
+        {
+            "name": "Global Data Systems",
+            "position": "Backend Developer",
+            "url": "https://www.globaldata.net",
+            "startDate": "2016-08-01",
+            "endDate": "2019-05-31",
+            "summary": "Involvement in the development of RESTful APIs for financial services.",
+            "highlights": [
+                "Development of new features and maintenance of the client database.",
+                "Collaboration on technical documentation for the APIs."
+            ],
+            "keywords": [
+                "Backend Development",
+                "REST API",
+                "SQL",
+                "Documentation"
+            ]
+        },
+        {
+            "name": "Startup Ágil",
+            "position": "Junior Developer",
+            "url": "https://www.startupagil.co",
+            "startDate": "2015-01-01",
+            "endDate": "2016-07-31",
+            "summary": "First professional role focused on frontend development and customer support.",
+            "highlights": [
+                "Utilization of JavaScript frameworks for user interface development.",
+                "Resolution of critical production bugs."
+            ],
+            "keywords": [
+                "Frontend",
+                "JavaScript",
+                "UI/UX",
+                "Bug Fixing"
+            ]
+        },
+        {
+            "name": "Universidad Tecnológica",
+            "position": "Research Intern",
+            "url": "https://www.utec.edu",
+            "startDate": "2014-06-01",
+            "endDate": "2014-12-31",
+            "summary": "Collaboration on a machine learning project for optimizing search algorithms.",
+            "highlights": [
+                "Collection and preprocessing of large datasets.",
+                "Performance analysis of algorithms in Python."
+            ],
+            "keywords": [
+                "Machine Learning",
+                "Data Analysis",
+                "Python",
+                "Research"
+            ]
+        }
+    ],
+    "volunteer": [
+        {
+            "organization": "Code for Good España",
+            "position": "Mentor/Volunteer Developer",
+            "url": "https://www.codeforgood.es",
+            "startDate": "2021-01-01",
+            "summary": "Collaboration in the creation of digital tools for local NGOs. Mentoring new developers.",
+            "highlights": [
+                "Developed a donation management system for an NGO.",
+                "Delivered introductory Python workshops."
+            ],
+            "keywords": [
+                "Mentoring",
+                "Non-profit",
+                "Digital Tools",
+                "Community"
+            ]
+        },
+        {
+            "organization": "Open Source Initiative",
+            "position": "Documentation Contributor",
+            "url": "https://opensource.org",
+            "startDate": "2018-03-01",
+            "endDate": "2020-12-31",
+            "summary": "Contribution to open source project documentation, ensuring clarity and technical accuracy.",
+            "highlights": [
+                "Technical translation and revision of user manuals."
+            ],
+            "keywords": [
+                "Open Source",
+                "Documentation",
+                "Technical Writing"
+            ]
+        },
+        {
+            "organization": "Club de Programación Juvenil",
+            "position": "Instructor",
+            "url": "https://www.clubprogramacion.org",
+            "startDate": "2015-09-01",
+            "endDate": "2016-06-30",
+            "summary": "Teaching the fundamentals of programming to young people aged 12 to 16.",
+            "highlights": [
+                "Organized a hackathon for students."
+            ],
+            "keywords": [
+                "Education",
+                "Instruction",
+                "Youth Programs",
+                "Hackathon"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "Universidad Internacional de Tecnología",
+            "url": "https://www.uit.es",
+            "area": "Distributed Systems Architecture",
+            "studyType": "Official Master's Degree",
+            "startDate": "2023-09-01",
+            "endDate": "2025-06-30",
+            "score": "9.5/10 (Outstanding)",
+            "courses": [
+                "Microservices Design",
+                "DevOps and Cloud Automation",
+                "Cloud Security"
+            ],
+            "keywords": [
+                "Distributed Systems",
+                "Cloud Architecture",
+                "DevOps",
+                "Graduate Studies"
+            ]
+        },
+        {
+            "institution": "Universidad Politécnica de Madrid",
+            "url": "https://www.upm.es",
+            "area": "Computer Engineering",
+            "studyType": "University Degree (Bachelor)",
+            "startDate": "2010-09-01",
+            "endDate": "2014-06-30",
+            "score": "8.2/10",
+            "courses": [
+                "Data Structures",
+                "Advanced Databases",
+                "Object-Oriented Programming"
+            ],
+            "keywords": [
+                "Computer Science",
+                "Programming",
+                "Databases",
+                "OOP"
+            ]
+        }
+    ],
+    "certificates": [
+        {
+            "name": "AWS Solutions Architect – Professional Certification",
+            "date": "2024-03-15",
+            "issuer": "Amazon Web Services (AWS)",
+            "url": "",
+            "id": "",
+            "summary": "Validation of experience in designing scalable and highly available system architectures on AWS.",
+            "keywords": [
+                "AWS",
+                "Cloud Architecture",
+                "Solutions Architect",
+                "Scalability"
+            ]
+        },
+        {
+            "name": "Certified ScrumMaster (CSM)",
+            "date": "2022-11-20",
+            "issuer": "Scrum Alliance",
+            "url": "",
+            "id": "",
+            "summary": "Certification demonstrating understanding of the Scrum framework and skills to act as a Scrum Master.",
+            "keywords": [
+                "Agile",
+                "Scrum",
+                "Project Management",
+                "CSM"
+            ]
+        },
+        {
+            "name": "Advanced English Certificate (C2)",
+            "date": "2018-07-01",
+            "issuer": "Cambridge Assessment English",
+            "url": "",
+            "id": "",
+            "summary": "C2 level in the Common European Framework of Reference for Languages.",
+            "keywords": [
+                "English",
+                "C2 Level",
+                "Language Skills"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "OptiTrack (Task Manager)",
+            "description": "Web application for personal time management using the Pomodoro technique, built with React and Firebase.",
+            "highlights": [
+                "Implemented user authentication and data persistence using Firestore.",
+                "Responsive design with Tailwind CSS."
+            ],
+            "keywords": [
+                "React",
+                "Firebase",
+                "Tailwind CSS",
+                "Time Management"
+            ],
+            "url": "https://github.com/aperez-dev/optitrack-app"
+        },
+        {
+            "name": "Famous Quotes API",
+            "description": "RESTful API written in Python (Flask) serving a collection of over 1000 quotes. Deployed in a Docker container.",
+            "highlights": [
+                "Used SQLite database.",
+                "Documentation with Swagger/OpenAPI."
+            ],
+            "keywords": [
+                "Python",
+                "Flask",
+                "REST API",
+                "Docker"
+            ],
+            "url": "https://github.com/aperez-dev/quotes-api"
+        },
+        {
+            "name": "Stock Data Visualizer",
+            "description": "Desktop tool (Electron) for visualizing real-time stock trends, consuming data from a public API.",
+            "highlights": [
+                "Used charting libraries (Chart.js) for data representation.",
+                "Implemented dark/light mode."
+            ],
+            "keywords": [
+                "Electron",
+                "JavaScript",
+                "Chart.js",
+                "Finance"
+            ],
+            "url": "https://github.com/aperez-dev/stock-viz-tool"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Programming Languages",
+            "level": "Master",
+            "keywords": [
+                "Python",
+                "JavaScript",
+                "TypeScript",
+                "Java"
+            ]
+        },
+        {
+            "name": "Cloud & DevOps",
+            "level": "Advanced",
+            "keywords": [
+                "AWS",
+                "EC2",
+                "Lambda",
+                "S3",
+                "RDS",
+                "VPC",
+                "Docker",
+                "Kubernetes",
+                "Terraform",
+                "CI/CD",
+                "Github Actions",
+                "Jenkins"
+            ]
+        },
+        {
+            "name": "Databases",
+            "level": "Intermediate",
+            "keywords": [
+                "PostgreSQL",
+                "MySQL",
+                "MongoDB",
+                "Redis"
+            ]
+        }
+    ],
+    "interests": [
+        {
+            "name": "Technology",
+            "keywords": [
+                "Artificial Intelligence",
+                "Quantum Computing",
+                "Cybersecurity",
+                "Blockchain"
+            ]
+        },
+        {
+            "name": "Sports",
+            "keywords": [
+                "Hiking",
+                "Yoga",
+                "Mountain Biking"
+            ]
+        },
+        {
+            "name": "Culture",
+            "keywords": [
+                "Fantasy Literature",
+                "Arthouse Cinema",
+                "Language Learning"
+            ]
+        }
+    ],
+    "references": [
+        {
+            "name": "Dr. Javier Ríos",
+            "reference": "Javier was my direct supervisor at Innovación Digital S.A. (2019-2022). He can speak to my technical leadership and problem-solving skills.",
+            "contact": "javier.rios@innovaciondigital.com"
+        },
+        {
+            "name": "María Gómez",
+            "reference": "María is the Director of the NGO at Code for Good España. She can attest to my commitment to volunteering and my mentoring skills.",
+            "contact": "maria.gomez@codeforgood.es"
+        }
+    ]
+}
