@@ -16,6 +16,8 @@ Schema for this part of the json resume:
 
 from pydantic import BaseModel, Field
 
+from ..schemas_utils import consolidate_id, sanitize_text
+
 
 class SkillItem(BaseModel):
     name: str | None = Field(
@@ -40,6 +42,12 @@ class SkillItem(BaseModel):
             "JavaScript",
         ],
     }
+
+    def get_id(self) -> str:
+        return consolidate_id(
+            "skill",
+            sanitize_text(self.name or "no_skill", max_len=15),
+        )
 
     def format(self) -> str:
         return f"""

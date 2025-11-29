@@ -21,6 +21,8 @@ import typing as t
 
 from pydantic import BaseModel, Field, HttpUrl
 
+from ..schemas_utils import consolidate_id, sanitize_text
+
 
 class VolunteerItem(BaseModel):
     organization: str | None = Field(
@@ -66,6 +68,14 @@ class VolunteerItem(BaseModel):
         "highlights": ["Awarded 'Volunteer of the Month'"],
         "keywords": ["community service", "leadership"],
     }
+
+    def get_id(self) -> str:
+        return consolidate_id(
+            "volunteer",
+            sanitize_text(self.organization or "no_org", max_len=10),
+            sanitize_text(self.position or "no_position", max_len=10),
+            self.startDate.strftime("%Y%m") if self.startDate else "no_date",
+        )
 
     def format(self) -> str:
         highlights_formatted = ""

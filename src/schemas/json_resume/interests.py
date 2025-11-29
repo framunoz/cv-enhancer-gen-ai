@@ -14,6 +14,8 @@ Schema for this part of the json resume:
 
 from pydantic import BaseModel, Field
 
+from ..schemas_utils import consolidate_id, sanitize_text
+
 
 class InterestItem(BaseModel):
     name: str | None = Field(
@@ -32,6 +34,12 @@ class InterestItem(BaseModel):
             "Unicorns",
         ],
     }
+
+    def get_id(self) -> str:
+        return consolidate_id(
+            "interest",
+            sanitize_text(self.name) if self.name else "unknown",
+        )
 
     def format(self) -> str:
         return f"""

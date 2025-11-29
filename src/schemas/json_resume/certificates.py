@@ -16,6 +16,8 @@ import typing as t
 
 from pydantic import BaseModel, Field, HttpUrl
 
+from ..schemas_utils import consolidate_id, sanitize_text
+
 
 class CertificateItem(BaseModel):
     name: str | None = Field(
@@ -50,6 +52,14 @@ class CertificateItem(BaseModel):
         "url": "https://certificate.com",
         "keywords": ["certification", "achievement"],
     }
+
+    def get_id(self) -> str:
+        return consolidate_id(
+            "certificate",
+            sanitize_text(self.name or "no_name", max_len=10),
+            sanitize_text(self.issuer or "no_issuer", max_len=10),
+            self.date.strftime("%Y%m%d") if self.date else "no_date",
+        )
 
     def format(self) -> str:
         return f"""

@@ -20,6 +20,8 @@ import typing as t
 
 from pydantic import BaseModel, Field, HttpUrl
 
+from ..schemas_utils import consolidate_id, sanitize_text
+
 
 class ProjectItem(BaseModel):
     name: str | None = Field(
@@ -60,6 +62,13 @@ class ProjectItem(BaseModel):
         "url": "https://project.com/",
         "keywords": ["project", "achievement"],
     }
+
+    def get_id(self) -> str:
+        return consolidate_id(
+            "project",
+            sanitize_text(self.name or "no_project", max_len=10),
+            self.startDate.strftime("%Y%m") if self.startDate else "no_date",
+        )
 
     def format(self) -> str:
         highlights_formatted = ""
