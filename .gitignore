@@ -209,5 +209,7 @@ __marimo__/
 
 db/*
 !db/*example.json
+data/*
+!data/*example.json
 
 main.py
