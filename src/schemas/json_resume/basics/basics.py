@@ -35,13 +35,6 @@ from .location import Location
 from .profile import Profile
 
 
-class BasicsEssential(BaseModel):
-    summary: str | None = Field(
-        None,
-        description="A brief summary about the individual",
-    )
-
-
 class Basics(BaseModel):
     name: str | None = Field(
         None,
@@ -85,11 +78,6 @@ class Basics(BaseModel):
             " and URL"
         ),
     )
-
-    def get_essential(self) -> BasicsEssential:
-        return BasicsEssential(
-            summary=self.summary,
-        )
 
     __EXAMPLE__ = {
         "name": "John Doe",

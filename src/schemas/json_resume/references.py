@@ -12,13 +12,7 @@ Schema for this part of the json resume:
 from pydantic import BaseModel, Field
 
 
-class ReferenceItemEssential(BaseModel):
-    pass
-
-
-class ReferenceItem(
-    BaseModel,
-):
+class ReferenceItem(BaseModel):
     name: str | None = Field(
         None,
         description="Name of the reference",
@@ -27,9 +21,6 @@ class ReferenceItem(
         None,
         description="Reference text or statement",
     )
-
-    def get_essential(self) -> ReferenceItemEssential:
-        return ReferenceItemEssential()
 
     __EXAMPLE__ = {
         "name": "Jane Doe",

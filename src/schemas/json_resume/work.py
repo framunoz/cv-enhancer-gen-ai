@@ -22,28 +22,7 @@ import typing as t
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class WorkItemEssential(BaseModel):
-    name: str | None = Field(
-        None,
-        description="Name of the company or organization",
-    )
-    position: str | None = Field(
-        None,
-        description="Position held at the company",
-    )
-    summary: str | None = Field(
-        None,
-        description="Summary of the role and responsibilities",
-    )
-    highlights: list[str] | None = Field(
-        None,
-        description="List of highlights or achievements in this role",
-    )
-
-
-class WorkItem(
-    BaseModel,
-):
+class WorkItem(BaseModel):
     name: str | None = Field(
         None,
         description="Name of the company or organization",
@@ -77,14 +56,6 @@ class WorkItem(
         description="List of keywords extracted from the work item",
     )
 
-    def get_essential(self) -> WorkItemEssential:
-        return WorkItemEssential(
-            name=self.name,
-            position=self.position,
-            summary=self.summary,
-            highlights=self.highlights,
-        )
-
     __EXAMPLE__ = {
         "name": "Company",
         "position": "President",
@@ -94,3 +65,14 @@ class WorkItem(
         "summary": "Description…",
         "highlights": ["Started the company"],
     }
+
+    def format(self) -> str:
+        return (
+            f"Company: {self.name}\n"
+            f"Position: {self.position}\n"
+            f"URL: {self.url}\n"
+            f"Start Date: {self.startDate.date() if self.startDate else 'N/A'}\n"
+            f"End Date: {self.endDate.date() if self.endDate else 'N/A'}\n"
+            f"Summary: {self.summary}\n"
+            f"Highlights: {', '.join(self.highlights) if self.highlights else 'N/A'}\n"
+        )

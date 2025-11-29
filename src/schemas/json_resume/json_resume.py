@@ -1,77 +1,20 @@
-import typing as t
-
 from pydantic import BaseModel, Field
 
-from .awards import AwardItem, AwardItemEssential
-from .basics import Basics, BasicsEssential
-from .certificates import CertificateItem, CertificateItemEssential
-from .education import EducationItem, EducationItemEssential
-from .interests import InterestItem, InterestItemEssential
-from .interface_essential import InterfaceEssential
-from .languages import LanguageItem, LanguageItemEssential
-from .projects import ProjectItem, ProjectItemEssential
-from .publications import PublicationItem, PublicationItemEssential
-from .references import ReferenceItem, ReferenceItemEssential
-from .skills import SkillItem, SkillItemEssential
-from .volunteer import VolunteerItem, VolunteerItemEssential
-from .work import WorkItem, WorkItemEssential
+from .awards import AwardItem
+from .basics import Basics
+from .certificates import CertificateItem
+from .education import EducationItem
+from .interests import InterestItem
+from .languages import LanguageItem
+from .projects import ProjectItem
+from .publications import PublicationItem
+from .references import ReferenceItem
+from .skills import SkillItem
+from .volunteer import VolunteerItem
+from .work import WorkItem
 
 
-class JsonResumeEssential(BaseModel):
-
-    basics: BasicsEssential | None = Field(
-        None,
-        description="Basic information about the individual",
-    )
-    work: list[WorkItemEssential] | None = Field(
-        None,
-        description="List of work experiences",
-    )
-    volunteer: list[VolunteerItemEssential] | None = Field(
-        None,
-        description="List of volunteer experiences",
-    )
-    education: list[EducationItemEssential] | None = Field(
-        None,
-        description="List of educational qualifications",
-    )
-    awards: list[AwardItemEssential] | None = Field(
-        None,
-        description="List of awards received",
-    )
-    certificates: list[CertificateItemEssential] | None = Field(
-        None,
-        description="List of certificates obtained",
-    )
-    publications: list[PublicationItemEssential] | None = Field(
-        None,
-        description="List of publications",
-    )
-    skills: list[SkillItemEssential] | None = Field(
-        None,
-        description="List of skills",
-    )
-    languages: list[LanguageItemEssential] | None = Field(
-        None,
-        description="List of languages known",
-    )
-    interests: list[InterestItemEssential] | None = Field(
-        None,
-        description="List of interests",
-    )
-    references: list[ReferenceItemEssential] | None = Field(
-        None,
-        description="List of references",
-    )
-    projects: list[ProjectItemEssential] | None = Field(
-        None,
-        description="List of projects",
-    )
-
-
-class JsonResume(
-    BaseModel,
-):
+class JsonResume(BaseModel):
     """
     Schema for the JSON Resume format.
 
@@ -126,34 +69,6 @@ class JsonResume(
         None,
         description="List of projects",
     )
-
-    def get_essential(self) -> JsonResumeEssential:
-        def _get_essential_list(
-            list_items: t.Sequence[InterfaceEssential] | None,
-        ) -> list[BaseModel] | None:
-            if list_items is None or len(list_items) == 0:
-                return None
-            list_essential_items = []
-            for item in list_items:
-                item_essential = item.get_essential()
-                if len(item_essential.model_dump(exclude_none=True)) > 0:
-                    list_essential_items.append(item_essential)
-            return list_essential_items if len(list_essential_items) > 0 else None
-
-        return JsonResumeEssential(
-            basics=self.basics.get_essential() if self.basics else None,
-            work=_get_essential_list(self.work),
-            volunteer=_get_essential_list(self.volunteer),
-            education=_get_essential_list(self.education),
-            awards=_get_essential_list(self.awards),
-            certificates=_get_essential_list(self.certificates),
-            publications=_get_essential_list(self.publications),
-            skills=_get_essential_list(self.skills),
-            languages=_get_essential_list(self.languages),
-            interests=_get_essential_list(self.interests),
-            references=_get_essential_list(self.references),
-            projects=_get_essential_list(self.projects),
-        )
 
     __EXAMPLE__ = {
         "basics": {

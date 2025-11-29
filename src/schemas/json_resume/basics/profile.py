@@ -14,10 +14,6 @@ Schema for this part of the json resume:
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class ProfileEssential(BaseModel):
-    pass
-
-
 class Profile(BaseModel):
     network: str | None = Field(
         None,
@@ -31,10 +27,6 @@ class Profile(BaseModel):
         None,
         description="URL to the profile on the social network",
     )
-
-    def get_essential(self) -> ProfileEssential:
-        return ProfileEssential()
-
     __EXAMPLE__ = {
         "network": "Twitter",
         "username": "john",

@@ -17,13 +17,6 @@ import typing as t
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class CertificateItemEssential(BaseModel):
-    name: str | None = Field(
-        None,
-        description="Name of the certificate",
-    )
-
-
 class CertificateItem(BaseModel):
     name: str | None = Field(
         None,
@@ -46,17 +39,21 @@ class CertificateItem(BaseModel):
         description="List of keywords extracted from the certificate item",
     )
 
-    def get_essential(self) -> CertificateItemEssential:
-        return CertificateItemEssential(
-            name=self.name,
-        )
-
     __EXAMPLE__ = {
         "name": "Certificate",
         "date": "2021-11-07",
         "issuer": "Company",
         "url": "https://certificate.com",
     }
+
+    def format(self) -> str:
+        return (
+            f"Certificate: {self.name}\n"
+            f"Date: {self.date.date() if self.date else 'N/A'}\n"
+            f"Issuer: {self.issuer}\n"
+            f"URL: {self.url}\n"
+            f"Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}\n"
+        )
 
 
 assert CertificateItem.model_validate(CertificateItem.__EXAMPLE__)  # noqa: S101

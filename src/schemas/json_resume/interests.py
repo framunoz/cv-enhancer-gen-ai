@@ -15,7 +15,7 @@ Schema for this part of the json resume:
 from pydantic import BaseModel, Field
 
 
-class InterestItemEssential(BaseModel):
+class InterestItem(BaseModel):
     name: str | None = Field(
         None,
         description="Name of the interest",
@@ -24,25 +24,6 @@ class InterestItemEssential(BaseModel):
         None,
         description="List of keywords related to the interest",
     )
-
-
-class InterestItem(
-    BaseModel,
-):
-    name: str | None = Field(
-        None,
-        description="Name of the interest",
-    )
-    keywords: list[str] | None = Field(
-        None,
-        description="List of keywords related to the interest",
-    )
-
-    def get_essential(self) -> InterestItemEssential:
-        return InterestItemEssential(
-            name=self.name,
-            keywords=self.keywords,
-        )
 
     __EXAMPLE__ = {
         "name": "Wildlife",
@@ -51,6 +32,12 @@ class InterestItem(
             "Unicorns",
         ],
     }
+
+    def format(self) -> str:
+        return (
+            f"Interest: {self.name}\n"
+            f"Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}\n"
+        )
 
 
 assert InterestItem.model_validate(InterestItem.__EXAMPLE__)  # noqa: S101

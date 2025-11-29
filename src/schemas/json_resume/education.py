@@ -23,13 +23,7 @@ import typing as t
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class EducationItemEssential(BaseModel):
-    pass
-
-
-class EducationItem(
-    BaseModel,
-):
+class EducationItem(BaseModel):
     institution: str | None = Field(
         None,
         description="Name of the educational institution",
@@ -62,9 +56,6 @@ class EducationItem(
         None,
         description="List of relevant courses taken",
     )
-
-    def get_essential(self) -> EducationItemEssential:
-        return EducationItemEssential()
 
     __EXAMPLE__ = {
         "institution": "University",

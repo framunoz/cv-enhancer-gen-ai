@@ -17,16 +17,7 @@ Schema for this part of the json resume:
 from pydantic import BaseModel, Field
 
 
-class SkillItemEssential(BaseModel):
-    keywords: list[str] | None = Field(
-        None,
-        description="List of keywords related to the skill",
-    )
-
-
-class SkillItem(
-    BaseModel,
-):
+class SkillItem(BaseModel):
     name: str | None = Field(
         None,
         description="Name of the skill",
@@ -40,11 +31,6 @@ class SkillItem(
         description="List of keywords related to the skill",
     )
 
-    def get_essential(self) -> SkillItemEssential:
-        return SkillItemEssential(
-            keywords=self.keywords,
-        )
-
     __EXAMPLE__ = {
         "name": "Web Development",
         "level": "Master",
@@ -54,6 +40,13 @@ class SkillItem(
             "JavaScript",
         ],
     }
+
+    def format(self) -> str:
+        return (
+            f"Skill: {self.name}\n"
+            f"Level: {self.level}\n"
+            f"Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}\n"
+        )
 
 
 assert SkillItem.model_validate(SkillItem.__EXAMPLE__)  # noqa: S101

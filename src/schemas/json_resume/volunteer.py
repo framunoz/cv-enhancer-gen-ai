@@ -22,28 +22,7 @@ import typing as t
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class VolunteerItemEssential(BaseModel):
-    organization: str | None = Field(
-        None,
-        description="Name of the organization",
-    )
-    summary: str | None = Field(
-        None,
-        description="Summary of the volunteer work",
-    )
-    highlights: list[str] | None = Field(
-        None,
-        description="List of highlights or achievements during the volunteer work",
-    )
-    keywords: list[str] | None = Field(
-        None,
-        description="List of keywords extracted from the volunteer item",
-    )
-
-
-class VolunteerItem(
-    BaseModel,
-):
+class VolunteerItem(BaseModel):
     organization: str | None = Field(
         None,
         description="Name of the organization",
@@ -73,13 +52,6 @@ class VolunteerItem(
         description="List of highlights or achievements during the volunteer work",
     )
 
-    def get_essential(self) -> VolunteerItemEssential:
-        return VolunteerItemEssential(
-            organization=self.organization,
-            summary=self.summary,
-            highlights=self.highlights,
-        )
-
     __EXAMPLE__ = {
         "organization": "Organization",
         "position": "Volunteer",
@@ -89,6 +61,17 @@ class VolunteerItem(
         "summary": "Description…",
         "highlights": ["Awarded 'Volunteer of the Month'"],
     }
+
+    def format(self) -> str:
+        return (
+            f"Organization: {self.organization}\n"
+            f"Position: {self.position}\n"
+            f"URL: {self.url}\n"
+            f"Start Date: {self.startDate.date() if self.startDate else 'N/A'}\n"
+            f"End Date: {self.endDate.date() if self.endDate else 'N/A'}\n"
+            f"Summary: {self.summary}\n"
+            f"Highlights: {', '.join(self.highlights) if self.highlights else 'N/A'}\n"
+        )
 
 
 assert VolunteerItem.model_validate(VolunteerItem.__EXAMPLE__)  # noqa: S101
