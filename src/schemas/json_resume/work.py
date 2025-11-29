@@ -64,15 +64,26 @@ class WorkItem(BaseModel):
         "endDate": "2014-01-01",
         "summary": "Description…",
         "highlights": ["Started the company"],
+        "keywords": ["leadership", "entrepreneurship"],
     }
 
     def format(self) -> str:
-        return (
-            f"Company: {self.name}\n"
-            f"Position: {self.position}\n"
-            f"URL: {self.url}\n"
-            f"Start Date: {self.startDate.date() if self.startDate else 'N/A'}\n"
-            f"End Date: {self.endDate.date() if self.endDate else 'N/A'}\n"
-            f"Summary: {self.summary}\n"
-            f"Highlights: {', '.join(self.highlights) if self.highlights else 'N/A'}\n"
-        )
+        highlights_formatted = ""
+        if self.highlights:
+            for highlight in self.highlights:
+                highlights_formatted += f"    - {highlight}\n"
+        else:
+            highlights_formatted = "N/A"
+        return f"""
+## Company: {self.name}
+
+### Position: {self.position}
+
+- Summary:
+    > {self.summary}
+
+- Highlights:
+{highlights_formatted}
+
+- Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}
+"""

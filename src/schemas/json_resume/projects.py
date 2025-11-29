@@ -58,17 +58,27 @@ class ProjectItem(BaseModel):
         "description": "Description...",
         "highlights": ["Won award at AIHacks 2016"],
         "url": "https://project.com/",
+        "keywords": ["project", "achievement"],
     }
 
     def format(self) -> str:
-        return (
-            f"Project: {self.name}\n"
-            f"Start Date: {self.startDate.date() if self.startDate else 'N/A'}\n"
-            f"End Date: {self.endDate.date() if self.endDate else 'N/A'}\n"
-            f"Description: {self.description}\n"
-            f"Highlights: {', '.join(self.highlights) if self.highlights else 'N/A'}\n"
-            f"URL: {self.url}\n"
-        )
+        highlights_formatted = ""
+        if self.highlights:
+            for highlight in self.highlights:
+                highlights_formatted += f"    - {highlight}\n"
+        else:
+            highlights_formatted = "N/A"
+        return f"""
+## Project: {self.name}
+
+- Description:
+    > {self.description}
+
+- Highlights:
+{highlights_formatted}
+
+- Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}
+"""
 
 
 assert ProjectItem.model_validate(ProjectItem.__EXAMPLE__)  # noqa: S101

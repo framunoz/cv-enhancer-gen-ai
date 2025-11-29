@@ -42,11 +42,13 @@ class SkillItem(BaseModel):
     }
 
     def format(self) -> str:
-        return (
-            f"Skill: {self.name}\n"
-            f"Level: {self.level}\n"
-            f"Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}\n"
-        )
+        return f"""
+## Skill: {self.name}
+
+- Level: {self.level}
+
+- Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}
+"""
 
 
 assert SkillItem.model_validate(SkillItem.__EXAMPLE__)  # noqa: S101

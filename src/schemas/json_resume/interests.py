@@ -34,10 +34,11 @@ class InterestItem(BaseModel):
     }
 
     def format(self) -> str:
-        return (
-            f"Interest: {self.name}\n"
-            f"Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}\n"
-        )
+        return f"""
+## Interest: {self.name}
+
+- Keywords: {', '.join(self.keywords) if self.keywords else 'N/A'}
+"""
 
 
 assert InterestItem.model_validate(InterestItem.__EXAMPLE__)  # noqa: S101
