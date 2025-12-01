@@ -79,6 +79,10 @@ class Basics(BaseModel):
         ),
     )
 
+    @property
+    def item_type(self) -> str:
+        return "basics"
+
     __EXAMPLE__ = {
         "name": "John Doe",
         "label": "Programmer",

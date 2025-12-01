@@ -40,6 +40,10 @@ class Location(BaseModel):
         description="Region or state",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "location"
+
     __EXAMPLE__ = {
         "address": "2712 Broadway St",
         "postalCode": "CA 94115",

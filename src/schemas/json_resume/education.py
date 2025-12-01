@@ -57,6 +57,10 @@ class EducationItem(BaseModel):
         description="List of relevant courses taken",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "education"
+
     __EXAMPLE__ = {
         "institution": "University",
         "url": "https://institution.com/",

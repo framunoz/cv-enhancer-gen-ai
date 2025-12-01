@@ -70,6 +70,10 @@ class JsonResume(BaseModel):
         description="List of projects",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "json_resume"
+
     __EXAMPLE__ = {
         "basics": {
             "name": "John Doe",

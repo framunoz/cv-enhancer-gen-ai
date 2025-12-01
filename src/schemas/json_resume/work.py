@@ -58,6 +58,10 @@ class WorkItem(BaseModel):
         description="List of keywords extracted from the work item",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "work"
+
     __EXAMPLE__ = {
         "name": "Company",
         "position": "President",

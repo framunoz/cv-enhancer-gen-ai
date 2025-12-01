@@ -50,8 +50,13 @@ class CertificateItem(BaseModel):
         "date": "2021-11-07",
         "issuer": "Company",
         "url": "https://certificate.com",
+        "summary": "This is to certify that...",
         "keywords": ["certification", "achievement"],
     }
+
+    @property
+    def item_type(self) -> str:
+        return "certificate"
 
     def get_id(self) -> str:
         return consolidate_id(

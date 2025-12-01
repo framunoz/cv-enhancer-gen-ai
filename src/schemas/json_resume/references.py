@@ -22,6 +22,10 @@ class ReferenceItem(BaseModel):
         description="Reference text or statement",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "reference"
+
     __EXAMPLE__ = {
         "name": "Jane Doe",
         "reference": "Reference…",

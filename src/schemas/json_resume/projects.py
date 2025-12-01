@@ -53,6 +53,10 @@ class ProjectItem(BaseModel):
         description="List of keywords extracted from the project item",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "project"
+
     __EXAMPLE__ = {
         "name": "Project",
         "startDate": "2019-01-01",

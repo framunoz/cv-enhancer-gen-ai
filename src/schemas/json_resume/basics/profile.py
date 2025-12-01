@@ -27,6 +27,11 @@ class Profile(BaseModel):
         None,
         description="URL to the profile on the social network",
     )
+
+    @property
+    def item_type(self) -> str:
+        return "profile"
+
     __EXAMPLE__ = {
         "network": "Twitter",
         "username": "john",

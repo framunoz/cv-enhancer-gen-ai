@@ -40,6 +40,10 @@ class PublicationItem(BaseModel):
         description="Summary of the publication",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "publication"
+
     __EXAMPLE__ = {
         "name": "Publication",
         "publisher": "Company",

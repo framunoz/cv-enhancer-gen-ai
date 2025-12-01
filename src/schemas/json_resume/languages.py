@@ -22,6 +22,10 @@ class LanguageItem(BaseModel):
         description="Fluency level in the language",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "language"
+
     __EXAMPLE__ = {
         "language": "English",
         "fluency": "Native speaker",

@@ -58,6 +58,10 @@ class VolunteerItem(BaseModel):
         description="List of keywords related to the volunteer work",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "volunteer"
+
     __EXAMPLE__ = {
         "organization": "Organization",
         "position": "Volunteer",

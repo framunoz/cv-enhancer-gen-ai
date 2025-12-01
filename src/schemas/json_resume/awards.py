@@ -34,6 +34,10 @@ class AwardItem(BaseModel):
         description="Summary or description of the award",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "award"
+
     __EXAMPLE__ = {
         "title": "Award",
         "date": "2014-11-01",

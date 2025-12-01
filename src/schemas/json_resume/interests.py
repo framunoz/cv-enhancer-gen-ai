@@ -27,6 +27,10 @@ class InterestItem(BaseModel):
         description="List of keywords related to the interest",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "interest"
+
     __EXAMPLE__ = {
         "name": "Wildlife",
         "keywords": [

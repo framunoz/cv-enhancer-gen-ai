@@ -33,6 +33,10 @@ class SkillItem(BaseModel):
         description="List of keywords related to the skill",
     )
 
+    @property
+    def item_type(self) -> str:
+        return "skill"
+
     __EXAMPLE__ = {
         "name": "Web Development",
         "level": "Master",
