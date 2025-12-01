@@ -29,7 +29,7 @@ class InterestItem(BaseModel):
 
     @property
     def item_type(self) -> str:
-        return "interest"
+        return "interests"
 
     __EXAMPLE__ = {
         "name": "Wildlife",

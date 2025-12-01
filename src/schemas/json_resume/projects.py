@@ -55,7 +55,7 @@ class ProjectItem(BaseModel):
 
     @property
     def item_type(self) -> str:
-        return "project"
+        return "projects"
 
     __EXAMPLE__ = {
         "name": "Project",

@@ -35,7 +35,7 @@ class SkillItem(BaseModel):
 
     @property
     def item_type(self) -> str:
-        return "skill"
+        return "skills"
 
     __EXAMPLE__ = {
         "name": "Web Development",

@@ -56,7 +56,7 @@ class CertificateItem(BaseModel):
 
     @property
     def item_type(self) -> str:
-        return "certificate"
+        return "certificates"
 
     def get_id(self) -> str:
         return consolidate_id(
