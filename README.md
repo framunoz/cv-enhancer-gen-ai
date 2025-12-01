@@ -1,5 +1,40 @@
 # cv-enhancer-gen-ai
 
+## Installation and use
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/framunoz/cv-enhancer-gen-ai.git
+    cd cv-enhancer-gen-ai
+    ```
+
+2. Create and activate a virtual environment:
+
+    ```bash
+    uv venv
+    source .venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    uv sync
+    ```
+
+3. Add your Google API key to the `.env` file in the `notebooks` directory:
+
+    ```bash
+    cp notebooks/.env.example notebooks/.env
+    ```
+
+    Then edit `notebooks/.env` to include your actual API key:
+
+    ```bash
+    GOOGLE_API_KEY=your_google_api_key_here
+    ```
+
+4. Load your CV using the [json resume schema](https://jsonresume.org/schema/) (we include an additional field for stacks per experience, an example can be found in [/data/json_resume_example.json](./data/json_resume_example.json)).
+
+5. Open the notebook [01-cv-enhancer-prototype.ipynb](./notebooks/01-cv-enhancer-prototype.ipynb) and run the cells to enhance your CV based on a job offer. Introduce your CV file path and the job offer text when prompted.
+
+## Architecture planning (it is not the current implementation)
+
 ```mermaid
 flowchart TD
     Start@{ shape: circle }
