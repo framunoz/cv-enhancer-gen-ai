@@ -18,6 +18,7 @@ dependencies = [
     "pydantic[email]>=2.12.4",
     "python-dotenv>=1.2.1",
     "streamlit>=1.51.0",
+    "toon-format",
 ]
 
 # If using Hatch, you might need to allow direct references
@@ -68,6 +69,9 @@ project-includes = [
     "**/*.py*",
     "**/*.ipynb",
 ]
+
+[tool.uv.sources]
+toon-format = { git = "https://github.com/toon-format/toon-python.git" }
 
 [dependency-groups]
 dev = [

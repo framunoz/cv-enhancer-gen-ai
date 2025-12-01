@@ -571,6 +571,7 @@ dependencies = [
     { name = "pydantic", extra = ["email"] },
     { name = "python-dotenv" },
     { name = "streamlit" },
+    { name = "toon-format" },
 ]
 
 [package.dev-dependencies]
@@ -586,6 +587,7 @@ requires-dist = [
     { name = "pydantic", extras = ["email"], specifier = ">=2.12.4" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "streamlit", specifier = ">=1.51.0" },
+    { name = "toon-format", git = "https://github.com/toon-format/toon-python.git" },
 ]
 
 [package.metadata.requires-dev]
@@ -3652,6 +3654,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6
 wheels = [
     { url = "https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b", size = 16588, upload-time = "2020-11-01T01:40:20.672Z" },
 ]
+
+[[package]]
+name = "toon-format"
+version = "0.9.0b1"
+source = { git = "https://github.com/toon-format/toon-python.git#8dfb593ed1c2b1442f1dd161406e1f7b8ae16573" }
 
 [[package]]
 name = "tornado"
