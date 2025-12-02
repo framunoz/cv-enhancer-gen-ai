@@ -9,10 +9,15 @@ Schema for this part of the json resume:
 ```
 """
 
-from pydantic import BaseModel, Field
+import typing as t
+
+from pydantic import Field
+
+from ..schemas_utils import consolidate_id, sanitize_text
+from ._abc import JsonResumeBaseModel
 
 
-class ReferenceItem(BaseModel):
+class ReferenceItem(JsonResumeBaseModel):
     name: str | None = Field(
         None,
         description="Name of the reference",
@@ -24,9 +29,16 @@ class ReferenceItem(BaseModel):
 
     @property
     def item_type(self) -> str:
-        return "reference"
+        return "references"
 
-    __EXAMPLE__ = {
+    @t.override
+    def get_id(self) -> str:
+        return consolidate_id(
+            self.item_type,
+            sanitize_text(self.name) if self.name else "unknown",
+        )
+
+    __EXAMPLE__: t.ClassVar = {
         "name": "Jane Doe",
         "reference": "Reference…",
     }

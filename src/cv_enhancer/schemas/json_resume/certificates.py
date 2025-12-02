@@ -14,12 +14,13 @@ Schema for this part of the json resume:
 import datetime as dt
 import typing as t
 
-from pydantic import BaseModel, Field, HttpUrl
+from pydantic import Field, HttpUrl
 
 from ..schemas_utils import consolidate_id, sanitize_text
+from ._abc import JsonResumeFormattableBaseModel
 
 
-class CertificateItem(BaseModel):
+class CertificateItem(JsonResumeFormattableBaseModel):
     name: str | None = Field(
         None,
         description="Name of the certificate",
@@ -45,7 +46,7 @@ class CertificateItem(BaseModel):
         description="List of keywords extracted from the certificate item",
     )
 
-    __EXAMPLE__ = {
+    __EXAMPLE__: t.ClassVar = {
         "name": "Certificate",
         "date": "2021-11-07",
         "issuer": "Company",
@@ -58,14 +59,16 @@ class CertificateItem(BaseModel):
     def item_type(self) -> str:
         return "certificates"
 
+    @t.override
     def get_id(self) -> str:
         return consolidate_id(
-            "certificate",
+            self.item_type,
+            self.date.strftime("%Y%m%d") if self.date else "no_date",
             sanitize_text(self.name or "no_name", max_len=10),
             sanitize_text(self.issuer or "no_issuer", max_len=10),
-            self.date.strftime("%Y%m%d") if self.date else "no_date",
         )
 
+    @t.override
     def format(self) -> str:
         return f"""
 ## Certificate: {self.name}

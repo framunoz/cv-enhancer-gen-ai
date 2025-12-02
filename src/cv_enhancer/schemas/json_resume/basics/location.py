@@ -13,10 +13,15 @@ Schema for this part of the json resume:
 
 """
 
-from pydantic import BaseModel, Field
+import typing as t
+
+from pydantic import Field
+
+from ...schemas_utils import consolidate_id, sanitize_text
+from .._abc import JsonResumeBaseModel
 
 
-class Location(BaseModel):
+class Location(JsonResumeBaseModel):
     address: str | None = Field(
         None,
         description="Street address",
@@ -40,11 +45,18 @@ class Location(BaseModel):
         description="Region or state",
     )
 
+    @t.override
+    def get_id(self) -> str:
+        return consolidate_id(
+            self.item_type,
+            sanitize_text(self.postalCode) if self.postalCode else "no_postal_code",
+        )
+
     @property
     def item_type(self) -> str:
         return "location"
 
-    __EXAMPLE__ = {
+    __EXAMPLE__: t.ClassVar = {
         "address": "2712 Broadway St",
         "postalCode": "CA 94115",
         "city": "San Francisco",

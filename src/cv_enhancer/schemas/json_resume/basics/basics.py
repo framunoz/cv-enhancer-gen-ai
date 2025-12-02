@@ -29,13 +29,15 @@ Schema for this part of the json resume:
 
 import typing as t
 
-from pydantic import BaseModel, EmailStr, Field, HttpUrl
+from pydantic import EmailStr, Field, HttpUrl
 
+from ...schemas_utils import consolidate_id, sanitize_text
+from .._abc import JsonResumeBaseModel
 from .location import Location
 from .profile import Profile
 
 
-class Basics(BaseModel):
+class Basics(JsonResumeBaseModel):
     name: str | None = Field(
         None,
         description="Full name of the individual",
@@ -79,11 +81,18 @@ class Basics(BaseModel):
         ),
     )
 
+    @t.override
+    def get_id(self) -> str:
+        return consolidate_id(
+            self.item_type,
+            sanitize_text(self.name) if self.name else "no_name",
+        )
+
     @property
     def item_type(self) -> str:
         return "basics"
 
-    __EXAMPLE__ = {
+    __EXAMPLE__: t.ClassVar = {
         "name": "John Doe",
         "label": "Programmer",
         "image": "",

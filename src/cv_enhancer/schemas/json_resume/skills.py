@@ -14,12 +14,15 @@ Schema for this part of the json resume:
 ```
 """
 
-from pydantic import BaseModel, Field
+import typing as t
+
+from pydantic import Field
 
 from ..schemas_utils import consolidate_id, sanitize_text
+from ._abc import JsonResumeFormattableBaseModel
 
 
-class SkillItem(BaseModel):
+class SkillItem(JsonResumeFormattableBaseModel):
     name: str | None = Field(
         None,
         description="Name of the skill",
@@ -37,7 +40,7 @@ class SkillItem(BaseModel):
     def item_type(self) -> str:
         return "skills"
 
-    __EXAMPLE__ = {
+    __EXAMPLE__: t.ClassVar = {
         "name": "Web Development",
         "level": "Master",
         "keywords": [
@@ -47,12 +50,14 @@ class SkillItem(BaseModel):
         ],
     }
 
+    @t.override
     def get_id(self) -> str:
         return consolidate_id(
-            "skill",
+            self.item_type,
             sanitize_text(self.name or "no_skill", max_len=15),
         )
 
+    @t.override
     def format(self) -> str:
         return f"""
 ## Skill: {self.name}

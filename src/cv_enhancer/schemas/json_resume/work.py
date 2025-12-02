@@ -19,12 +19,13 @@ Schema for this part of the json resume:
 import datetime as dt
 import typing as t
 
-from pydantic import BaseModel, Field, HttpUrl
+from pydantic import Field, HttpUrl
 
 from ..schemas_utils import consolidate_id, sanitize_text
+from ._abc import JsonResumeFormattableBaseModel
 
 
-class WorkItem(BaseModel):
+class WorkItem(JsonResumeFormattableBaseModel):
     name: str | None = Field(
         None,
         description="Name of the company or organization",
@@ -62,7 +63,7 @@ class WorkItem(BaseModel):
     def item_type(self) -> str:
         return "work"
 
-    __EXAMPLE__ = {
+    __EXAMPLE__: t.ClassVar = {
         "name": "Company",
         "position": "President",
         "url": "https://company.com",
@@ -73,14 +74,16 @@ class WorkItem(BaseModel):
         "keywords": ["leadership", "entrepreneurship"],
     }
 
+    @t.override
     def get_id(self) -> str:
         return consolidate_id(
-            "work",
+            self.item_type,
+            self.startDate.strftime("%Y%m%d") if self.startDate else "no_date",
             sanitize_text(self.name or "no_company", max_len=10),
             sanitize_text(self.position or "no_position", max_len=10),
-            self.startDate.strftime("%Y%m") if self.startDate else "no_date",
         )
 
+    @t.override
     def format(self) -> str:
         highlights_formatted = ""
         if self.highlights:
