@@ -79,8 +79,8 @@ class WorkItem(JsonResumeFormattableBaseModel):
         return consolidate_id(
             self.item_type,
             self.startDate.strftime("%Y%m%d") if self.startDate else "no_date",
-            sanitize_text(self.name or "no_company", max_len=10),
-            sanitize_text(self.position or "no_position", max_len=10),
+            sanitize_text(self.name or "no_company"),
+            sanitize_text(self.position or "no_position"),
         )
 
     @t.override

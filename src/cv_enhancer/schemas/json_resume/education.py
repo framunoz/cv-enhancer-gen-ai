@@ -69,8 +69,8 @@ class EducationItem(JsonResumeBaseModel):
         return consolidate_id(
             self.item_type,
             self.startDate.strftime("%Y%m%d") if self.startDate else "no_date",
-            sanitize_text(self.institution or "no_institution", max_len=10),
-            sanitize_text(self.area or "no_area", max_len=10),
+            sanitize_text(self.institution or "no_institution"),
+            sanitize_text(self.area or "no_area"),
         )
 
     __EXAMPLE__: t.ClassVar = {

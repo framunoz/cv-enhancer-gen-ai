@@ -60,8 +60,8 @@ class PublicationItem(JsonResumeFormattableBaseModel):
         return consolidate_id(
             self.item_type,
             self.releaseDate.strftime("%Y%m%d") if self.releaseDate else "no_date",
-            sanitize_text(self.name or "no_name", max_len=10),
-            sanitize_text(self.publisher or "no_publisher", max_len=10),
+            sanitize_text(self.name or "no_name"),
+            sanitize_text(self.publisher or "no_publisher"),
         )
 
     @t.override

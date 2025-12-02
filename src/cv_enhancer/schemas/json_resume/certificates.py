@@ -64,8 +64,8 @@ class CertificateItem(JsonResumeFormattableBaseModel):
         return consolidate_id(
             self.item_type,
             self.date.strftime("%Y%m%d") if self.date else "no_date",
-            sanitize_text(self.name or "no_name", max_len=10),
-            sanitize_text(self.issuer or "no_issuer", max_len=10),
+            sanitize_text(self.name or "no_name"),
+            sanitize_text(self.issuer or "no_issuer"),
         )
 
     @t.override

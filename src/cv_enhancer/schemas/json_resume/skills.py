@@ -54,7 +54,7 @@ class SkillItem(JsonResumeFormattableBaseModel):
     def get_id(self) -> str:
         return consolidate_id(
             self.item_type,
-            sanitize_text(self.name or "no_skill", max_len=15),
+            sanitize_text(self.name or "no_skill"),
         )
 
     @t.override
