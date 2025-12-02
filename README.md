@@ -85,3 +85,5 @@ flowchart TD
 
 - [ ] Implement the agents
 - [ ] Add a tool to get job descriptions from job offers
+- [ ] Improve the u¿instructions to generate an API key for Google
+- [ ] Improve instructions to create virtual environment with `uv`
