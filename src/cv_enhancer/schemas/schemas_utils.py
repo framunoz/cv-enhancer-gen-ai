@@ -30,7 +30,7 @@ EQUIV_CHARS = {
 }
 
 
-def sanitize_text(text: str, max_len: int | None = None) -> str:
+def sanitize_text(text: str, max_len: int | None = 31) -> str:
     """
     Sanitize a string by converting it to lowercase, replacing special
     characters, and removing non-alphanumeric characters except dots.
