@@ -1,5 +1,8 @@
+import typing as t
+
 from pydantic import BaseModel, Field
 
+from ._abc import JsonResumeBaseModel, JsonResumeFormattableBaseModel
 from .awards import AwardItem
 from .basics import Basics
 from .certificates import CertificateItem
@@ -70,11 +73,68 @@ class JsonResume(BaseModel):
         description="List of projects",
     )
 
+    def iter_items(self) -> t.Generator[JsonResumeBaseModel]:  # noqa: PLR0912
+        """Iterate over all items in the JSON Resume."""
+        if basics := self.basics:
+            yield basics
+
+            if basics.location:
+                yield basics.location
+
+            if basics.profiles:
+                yield from basics.profiles
+
+        if work := self.work:
+            yield from work
+
+        if volunteer := self.volunteer:
+            yield from volunteer
+
+        if education := self.education:
+            yield from education
+
+        if awards := self.awards:
+            yield from awards
+
+        if certificates := self.certificates:
+            yield from certificates
+
+        if publications := self.publications:
+            yield from publications
+
+        if skills := self.skills:
+            yield from skills
+
+        if languages := self.languages:
+            yield from languages
+
+        if interests := self.interests:
+            yield from interests
+
+        if references := self.references:
+            yield from references
+
+        if projects := self.projects:
+            yield from projects
+
+    def iter_over_formatables(self) -> t.Generator[JsonResumeFormattableBaseModel]:
+        """Iterate over all formattable items in the JSON Resume."""
+        for item in self.iter_items():
+            if isinstance(item, JsonResumeFormattableBaseModel):
+                yield item
+
+    def find_experience(self, exp_id: str) -> JsonResumeBaseModel | None:
+        """Find an experience item by its ID."""
+        for item in self.iter_items():
+            if item.get_id() == exp_id:
+                return item
+        return None
+
     @property
     def item_type(self) -> str:
         return "json_resume"
 
-    __EXAMPLE__ = {
+    __EXAMPLE__: t.ClassVar = {
         "basics": {
             "name": "John Doe",
             "label": "Programmer",

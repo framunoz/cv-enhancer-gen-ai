@@ -18,6 +18,11 @@ class JsonResumeBaseModel(BaseModel, metaclass=_model_construction.ModelMetaclas
         """Returns the type of the item represented by the model."""
         ...
 
+    @property
+    def has_keywords(self) -> bool:
+        """Indicates whether the model has keywords."""
+        return hasattr(self, "keywords") and bool(getattr(self, "keywords", None))
+
 
 class JsonResumeFormattableBaseModel(
     JsonResumeBaseModel, metaclass=_model_construction.ModelMetaclass
