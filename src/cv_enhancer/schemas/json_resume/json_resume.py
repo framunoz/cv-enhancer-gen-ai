@@ -17,6 +17,16 @@ from .volunteer import VolunteerItem
 from .work import WorkItem
 
 
+def _yield_if_exists(
+    item: JsonResumeBaseModel | t.Iterable[JsonResumeBaseModel] | None,
+) -> t.Generator[JsonResumeBaseModel]:
+    if item is not None:
+        if isinstance(item, JsonResumeBaseModel):
+            yield item
+        else:
+            yield from item
+
+
 class JsonResume(BaseModel):
     """
     Schema for the JSON Resume format.
@@ -73,49 +83,25 @@ class JsonResume(BaseModel):
         description="List of projects",
     )
 
-    def iter_items(self) -> t.Generator[JsonResumeBaseModel]:  # noqa: PLR0912
+    def iter_items(self) -> t.Generator[JsonResumeBaseModel]:
         """Iterate over all items in the JSON Resume."""
+
         if basics := self.basics:
-            yield basics
+            yield from _yield_if_exists(basics)
+            yield from _yield_if_exists(basics.location)
+            yield from _yield_if_exists(basics.profiles)
 
-            if basics.location:
-                yield basics.location
-
-            if basics.profiles:
-                yield from basics.profiles
-
-        if work := self.work:
-            yield from work
-
-        if volunteer := self.volunteer:
-            yield from volunteer
-
-        if education := self.education:
-            yield from education
-
-        if awards := self.awards:
-            yield from awards
-
-        if certificates := self.certificates:
-            yield from certificates
-
-        if publications := self.publications:
-            yield from publications
-
-        if skills := self.skills:
-            yield from skills
-
-        if languages := self.languages:
-            yield from languages
-
-        if interests := self.interests:
-            yield from interests
-
-        if references := self.references:
-            yield from references
-
-        if projects := self.projects:
-            yield from projects
+        yield from _yield_if_exists(self.work)
+        yield from _yield_if_exists(self.volunteer)
+        yield from _yield_if_exists(self.education)
+        yield from _yield_if_exists(self.awards)
+        yield from _yield_if_exists(self.certificates)
+        yield from _yield_if_exists(self.publications)
+        yield from _yield_if_exists(self.skills)
+        yield from _yield_if_exists(self.languages)
+        yield from _yield_if_exists(self.interests)
+        yield from _yield_if_exists(self.references)
+        yield from _yield_if_exists(self.projects)
 
     def iter_over_formatables(self) -> t.Generator[JsonResumeFormattableBaseModel]:
         """Iterate over all formattable items in the JSON Resume."""
