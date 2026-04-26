@@ -1,3 +1,5 @@
+![AI Resume Tailor](imgs/ai-resume-tailor-cover.png)
+
 # cv-enhancer-gen-ai
 
 ## Installation and use
