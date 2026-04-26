@@ -1,3 +1,4 @@
+from .job_offer_summarized import JobOfferSummarized
 from .json_resume import (
     AwardItem,
     Basics,
@@ -22,6 +23,7 @@ __all__ = [
     "CertificateItem",
     "EducationItem",
     "InterestItem",
+    "JobOfferSummarized",
     "JsonResume",
     "LanguageItem",
     "Location",

@@ -1,0 +1,24 @@
+import typing as t
+
+from pydantic import BaseModel, Field
+
+
+class JobOfferSummarized(BaseModel):
+    job_description: str = Field(
+        ...,
+        description="Concise description of the job",
+    )
+    requirements: list[str] = Field(
+        ...,
+        description="Key requirements listed clearly",
+    )
+    tech_stack: list[str] = Field(
+        ...,
+        description="Technologies and tools mentioned",
+    )
+
+    __EXAMPLE__: t.ClassVar = {
+        "job_description": "Develop and maintain web applications.",
+        "requirements": ["Python", "Django", "REST APIs"],
+        "tech_stack": ["AWS", "Docker", "PostgreSQL"],
+    }
